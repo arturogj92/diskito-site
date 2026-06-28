@@ -35,7 +35,7 @@
   "name": "Diskito",
   "operatingSystem": "macOS 14+",
   "applicationCategory": "UtilitiesApplication",
-  "description": "Diskito maps what's taking up space on your Mac with an interactive sunburst and treemap, then safely cleans caches, junk and large files in one click.",
+  "description": "Diskito maps what's taking up space on your Mac with an interactive sunburst, treemap and list view, then safely moves caches, junk and large files to the Trash in one click.",
   "url": "https://diskito.com/",
   "image": "https://diskito.com/assets/og-image.png",
   "downloadUrl": "https://github.com/arturogj92/diskito-site/releases/latest/download/Diskito.zip",
@@ -50,7 +50,7 @@
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "What is Diskito?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Diskito is a macOS app that shows what's taking up space on your disk as an interactive sunburst and treemap, then lets you reclaim space by safely deleting caches, junk and large files in one click." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Diskito is a macOS app that shows what's taking up space on your disk as an interactive sunburst, treemap and list, then lets you reclaim space by safely moving caches, junk and large files to the Trash in one click." } },
     { "@type": "Question", "name": "Is Diskito free?",
       "acceptedAnswer": { "@type": "Answer", "text": "Visualizing your disk is free forever. You also get 5 free cleanups to try deleting. When you want unlimited cleanup, you unlock it inside the app, with no subscription." } }
   ]
@@ -157,22 +157,26 @@ h2{font-family:var(--disp);font-weight:600;font-size:clamp(27px,4vw,42px);letter
 .center{text-align:center;margin:0 auto}
 .center .lead{margin-left:auto;margin-right:auto}
 
-.features{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:46px}
-.feat{border:1px solid var(--line);border-radius:16px;padding:26px;background:linear-gradient(180deg,rgba(243,241,234,.025),transparent);transition:.18s}
-.feat:hover{border-color:var(--line);transform:translateY(-2px);box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
-.feat .fi{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;border:1px solid var(--line);background:rgba(243,241,234,.03)}
-.feat h3{font-family:var(--disp);font-size:19px;font-weight:600;margin-bottom:8px}
-.feat p{color:var(--gray);font-size:14px;line-height:1.58}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:48px}
+.feat{position:relative;border:1px solid var(--line);border-radius:18px;padding:28px 28px 30px;background:linear-gradient(180deg,rgba(243,241,234,.03),transparent);transition:transform .22s cubic-bezier(.2,.7,.2,1),border-color .22s,box-shadow .22s}
+.feat:hover{border-color:rgba(251,191,36,.26);transform:translateY(-3px);box-shadow:0 34px 72px -34px rgba(0,0,0,.78)}
+.feat .fi{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;border:1px solid var(--line);background:rgba(243,241,234,.04);box-shadow:0 12px 26px -14px currentColor;transition:transform .22s,box-shadow .22s}
+.feat:hover .fi{transform:translateY(-1px) scale(1.05);box-shadow:0 16px 32px -12px currentColor}
+.feat h3{font-family:var(--disp);font-size:20px;font-weight:600;margin-bottom:9px;letter-spacing:-.3px}
+.feat p{color:var(--gray);font-size:14px;line-height:1.62}
 
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
-.step{border:1px solid var(--line);border-radius:16px;padding:26px;background:linear-gradient(180deg,rgba(243,241,234,.02),transparent)}
-.step .num{font-family:var(--mono);font-weight:600;font-size:13px;color:#2A1C05;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(180deg,#FCCB45,var(--amber-deep));margin-bottom:14px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.step{border:1px solid var(--line);border-radius:18px;padding:28px;background:linear-gradient(180deg,rgba(243,241,234,.025),transparent);transition:transform .22s cubic-bezier(.2,.7,.2,1),border-color .22s,box-shadow .22s}
+.step:hover{border-color:rgba(251,191,36,.22);transform:translateY(-2px);box-shadow:0 30px 62px -34px rgba(0,0,0,.72)}
+.step .num{font-family:var(--mono);font-weight:600;font-size:13px;color:#2A1C05;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(180deg,#FCCB45,var(--amber-deep));margin-bottom:15px;box-shadow:0 8px 18px -8px rgba(251,191,36,.6)}
 .step h3{font-family:var(--disp);font-size:18px;font-weight:600;margin-bottom:7px}
-.step p{color:var(--gray);font-size:14px;line-height:1.58}
+.step p{color:var(--gray);font-size:14px;line-height:1.6}
 
 .pricing{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:780px;margin:46px auto 0}
-.plan{border:1px solid var(--line);border-radius:18px;padding:30px;background:linear-gradient(180deg,rgba(243,241,234,.025),transparent)}
+.plan{border:1px solid var(--line);border-radius:18px;padding:30px;background:linear-gradient(180deg,rgba(243,241,234,.025),transparent);transition:transform .22s cubic-bezier(.2,.7,.2,1),border-color .22s,box-shadow .22s}
+.plan:hover{transform:translateY(-3px);box-shadow:0 34px 72px -36px rgba(0,0,0,.72)}
 .plan.pro{border-color:rgba(251,191,36,.32);background:radial-gradient(160px 110px at 88% 0%, rgba(251,191,36,.12), transparent 70%),linear-gradient(180deg,rgba(243,241,234,.03),transparent)}
+.plan.pro:hover{border-color:rgba(251,191,36,.5)}
 .plan .tag{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gray-2);font-weight:600}
 .plan.pro .tag{color:var(--amber)}
 .plan .price{font-family:var(--disp);font-weight:700;font-size:44px;margin:8px 0 2px;letter-spacing:-1.5px}
@@ -204,6 +208,14 @@ footer a:hover{color:var(--gray)}
   .nav-links{display:none}
   .features,.steps,.pricing{grid-template-columns:1fr}
   .float{display:none}
+}
+@media(max-width:560px){
+  h1{letter-spacing:-1.1px}
+  .cta-row{flex-direction:column;align-items:stretch}
+  .cta-row .btn{width:100%}
+  .feat,.step,.plan{padding:24px}
+  .band{padding:38px 22px}
+  .glowbg{left:0;right:0}
 }
 .try .demo-app{margin:46px auto 0;max-width:1000px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(180deg,var(--panel),var(--bg));box-shadow:0 50px 110px -40px rgba(0,0,0,.85),0 0 0 1px rgba(243,241,234,.03) inset}
 .da-bar{height:44px;display:flex;align-items:center;gap:10px;padding:0 16px;border-bottom:1px solid var(--line-soft);background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
@@ -332,7 +344,7 @@ footer a:hover{color:var(--gray)}
 </div></header>
 
 <section class="sect showcase" id="showcase">
-  <div class="wrap center" style="max-width:720px"><div class="kicker">The whole disk, one screen</div><h2>Your Mac's storage, finally readable.</h2><p class="lead center">Two views — a live sunburst or a treemap — plus your biggest files, smart cleanup and a collector, all in one calm, fast window.</p></div>
+  <div class="wrap center" style="max-width:720px"><div class="kicker">The whole disk, one screen</div><h2>Your Mac's storage, finally readable.</h2><p class="lead center">Three views — a live sunburst, a treemap or a Finder-style list — plus your biggest files, smart cleanup and a collector, all in one calm, fast window.</p></div>
   <div class="wrap"><div class="sc-frame-wrap">
     <div class="sc-glow"></div>
     <div class="sc-frame"><img src="assets/diskito-app-treemap.png" alt="Diskito app showing a treemap of a Mac disk with the largest files and a cleanup collector" loading="lazy"></div>
@@ -343,10 +355,10 @@ footer a:hover{color:var(--gray)}
 <section class="sect" id="features"><div class="wrap">
   <div class="center" style="max-width:660px"><div class="kicker">Why Diskito</div><h2>The clearest way to find — and kill — wasted space.</h2><p class="lead">Most disk tools dump a boring list. Diskito shows your whole drive at a glance, so the space hogs are impossible to miss.</p></div>
   <div class="features">
-    <div class="feat"><div class="fi" style="color:var(--coral)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10l8.5 5"/><circle cx="12" cy="12" r="10"/></svg></div><h3>Sunburst &amp; treemap</h3><p>See every folder as a ring or a map. Click any slice to dive in, reorder by size, and spot the giants instantly.</p></div>
-    <div class="feat"><div class="fi" style="color:var(--teal)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 14A2 2 0 0 0 8.5 12.6L3 11l5.5-1.6A2 2 0 0 0 9.9 8L11.5 2.5 13 8a2 2 0 0 0 1.4 1.4L20 11l-5.5 1.6A2 2 0 0 0 13 14l-1.5 5.5z"/></svg></div><h3>Smart cleanup</h3><p>Diskito finds the safe-to-delete stuff — caches, Xcode DerivedData, node_modules, Trash, old downloads — and adds it all with one click.</p></div>
-    <div class="feat"><div class="fi" style="color:var(--violet)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Collect, then reclaim</h3><p>Tap files to drop them in a collector, review the whole list, and move them all to the Trash in one click — reversible until you empty it.</p></div>
-    <div class="feat"><div class="fi" style="color:var(--amber)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><h3>Instant search</h3><p>Type to find any file or folder across the whole disk, sorted by size — no matter how deep it's buried.</p></div>
+    <div class="feat"><div class="fi" style="color:var(--coral)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10l8.5 5"/><circle cx="12" cy="12" r="10"/></svg></div><h3>Sunburst, treemap &amp; list</h3><p>See your drive as a glowing ring, a packed map, or a Finder-style list. Click any folder to drill in, pinch to zoom and two-finger pan, and spot the giants instantly.</p></div>
+    <div class="feat"><div class="fi" style="color:var(--teal)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 14A2 2 0 0 0 8.5 12.6L3 11l5.5-1.6A2 2 0 0 0 9.9 8L11.5 2.5 13 8a2 2 0 0 0 1.4 1.4L20 11l-5.5 1.6A2 2 0 0 0 13 14l-1.5 5.5z"/></svg></div><h3>Smart cleanup</h3><p>Diskito groups the safe-to-delete junk into clear categories — caches, Xcode DerivedData, node_modules, Docker, simulators, logs, Trash, old downloads — each with a plain reason it's safe. Click one to see exactly where it lives on the map.</p></div>
+    <div class="feat"><div class="fi" style="color:var(--violet)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Collect, then reclaim</h3><p>Tap files to drop them in a collector, review the whole list, and move them all to the Trash in one click — no admin password. Reversible until you empty the Trash, right from Diskito.</p></div>
+    <div class="feat"><div class="fi" style="color:var(--amber)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><h3>Instant search</h3><p>Type to find any file or folder across the whole disk, sorted by size or by how long it's sat untouched — no matter how deep it's buried.</p></div>
   </div>
 </div></section>
 
@@ -355,7 +367,7 @@ footer a:hover{color:var(--gray)}
   <div class="steps">
     <div class="step"><div class="num">1</div><h3>Scan your disk</h3><p>Diskito reads your drive in seconds and paints the full picture as a glowing sunburst map.</p></div>
     <div class="step"><div class="num">2</div><h3>Collect the junk</h3><p>Click hogs, or let Smart Cleanup grab the safe stuff. Everything piles into the collector with a running total.</p></div>
-    <div class="step"><div class="num">3</div><h3>Reclaim the space</h3><p>Authorize once and Diskito wipes it all, then shows how much you freed this session.</p></div>
+    <div class="step"><div class="num">3</div><h3>Reclaim the space</h3><p>One click moves it all to the Trash — no admin password, reversible until you empty it — and Diskito tallies what you freed this session.</p></div>
   </div>
 </div></section>
 
@@ -386,7 +398,7 @@ footer a:hover{color:var(--gray)}
 <section class="sect" id="faq"><div class="wrap">
   <div class="center" style="max-width:660px"><div class="kicker">FAQ</div><h2>Good to know.</h2></div>
   <div class="faq" id="faqList">
-    <div class="qa"><button>What is Diskito?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="a">Diskito is a macOS app that shows what's taking up space on your disk as an interactive sunburst and treemap, then lets you reclaim space by safely deleting caches, junk and large files in one click.</div></div>
+    <div class="qa"><button>What is Diskito?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="a">Diskito is a macOS app that shows what's taking up space on your disk as an interactive sunburst, treemap and list, then lets you reclaim space by safely moving caches, junk and large files to the Trash in one click.</div></div>
     <div class="qa"><button>Is Diskito free?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="a">Visualizing your disk is free forever, and you get 5 free cleanups to try deleting. When you want unlimited cleanup, you unlock it later right inside the app — no subscription, no account.</div></div>
     <div class="qa"><button>Does it work on Apple Silicon?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="a">Yes — Diskito is a universal build that runs natively on Apple Silicon (M-series) and Intel Macs, on macOS 14 and later.</div></div>
   </div>
