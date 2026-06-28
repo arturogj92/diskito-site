@@ -5,5 +5,12 @@
     <link>https://diskito.com/appcast.xml</link>
     <description>Most recent Diskito updates</description>
     <language>en</language>
+    <item>
+      <title>Version 1.0.0</title>
+      <description><![CDATA[First public release of Diskito — see what's eating your Mac's disk space with an interactive sunburst, treemap and list, then reclaim it safely by moving junk to the Trash.]]></description>
+      <pubDate>Sun, 28 Jun 2026 23:12:30 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.0/Diskito-v1.0.0-macOS.zip" sparkle:version="3" sparkle:shortVersionString="1.0.0" length="2321734" type="application/octet-stream" />
+    </item>
   </channel>
 </rss>
