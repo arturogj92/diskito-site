@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.3</title>
+      <description><![CDATA[Fixes a near-freeze when collecting a huge number of files at once (e.g. a node_modules folder with tens of thousands of files) and makes Clear all instant — the collector now renders a capped preview with the full count instead of one row per file.]]></description>
+      <pubDate>Mon, 29 Jun 2026 01:17:57 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.3/Diskito-v1.0.3-macOS.zip" sparkle:version="6" sparkle:shortVersionString="1.0.3" length="2331989" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.2</title>
       <description><![CDATA[The Largest view now shows the biggest files across your whole disk, not just the current folder — with a top-10 list and a Load more button, and a clear scope header.]]></description>
       <pubDate>Mon, 29 Jun 2026 01:06:43 +0200</pubDate>
