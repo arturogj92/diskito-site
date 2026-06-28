@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diskito — See What's Eating Your Mac's Disk Space</title>
+<meta name="description" content="Diskito shows exactly what's taking up space on your Mac with a beautiful interactive map, then cleans the junk safely. Free to download, no account — visualize everything and clean. No subscription.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0A0B0E">
+<link rel="canonical" href="https://diskito.app/">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/diskito-favicon-32.png">
+<link rel="apple-touch-icon" href="assets/diskito-apple-touch-180.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diskito">
+<meta property="og:title" content="Diskito — See What's Eating Your Mac's Disk Space">
+<meta property="og:description" content="A beautiful sunburst map of your Mac's disk, plus safe one-click cleanup. Free to download, no account.">
+<meta property="og:url" content="https://diskito.app/">
+<meta property="og:image" content="https://diskito.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Diskito sunburst disk map">
+<meta property="og:locale" content="en">
+<meta property="og:locale:alternate" content="es">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diskito — See What's Eating Your Mac's Disk Space">
+<meta name="twitter:description" content="A beautiful sunburst map of your Mac's disk, plus safe one-click cleanup. Free to download, no account.">
+<meta name="twitter:image" content="https://diskito.app/assets/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Diskito",
+  "operatingSystem": "macOS 14+",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "Diskito maps what's taking up space on your Mac with an interactive sunburst and treemap, then safely cleans caches, junk and large files in one click.",
+  "url": "https://diskito.app/",
+  "image": "https://diskito.app/assets/og-image.png",
+  "downloadUrl": "https://github.com/arturogj92/diskito-site/releases/latest/download/Diskito.zip",
+  "softwareVersion": "0.1.0",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Free to download — visualize your disk + 5 free cleanups; unlimited cleanup unlocks inside the app" },
+  "publisher": { "@type": "Organization", "name": "Diskito" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is Diskito?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Diskito is a macOS app that shows what's taking up space on your disk as an interactive sunburst and treemap, then lets you reclaim space by safely deleting caches, junk and large files in one click." } },
+    { "@type": "Question", "name": "Is Diskito free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Visualizing your disk is free forever. You also get 5 free cleanups to try deleting. When you want unlimited cleanup, you unlock it inside the app, with no subscription." } }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0B0E; --bg-2:#090A0C; --panel:#121319; --panel-2:#161821;
+  --white:#F3F1EA; --gray:#A6A29A; --gray-2:#6E6B64;
+  --amber:#FBBF24; --amber-deep:#D9920B; --amber-soft:rgba(251,191,36,.12);
+  --green:#5BD08A; --coral:#ff7a59; --teal:#3fd0c9; --violet:#9b8cff;
+  --line:rgba(243,241,234,.10); --line-soft:rgba(243,241,234,.06);
+  --disp:'Bricolage Grotesque',Georgia,serif;
+  --sans:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --max:1180px; --gut:clamp(18px,4vw,52px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
+  background-image:radial-gradient(1000px 560px at 84% -16%,rgba(251,191,36,.16),transparent 58%),radial-gradient(760px 520px at 0% 4%,rgba(251,191,36,.05),transparent 60%),linear-gradient(180deg,var(--bg),var(--bg-2));}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+  background-image:radial-gradient(rgba(243,241,234,.05) 1px,transparent 1px);background-size:32px 32px;
+  -webkit-mask-image:radial-gradient(900px 620px at 78% 2%,#000,transparent 76%);mask-image:radial-gradient(900px 620px at 78% 2%,#000,transparent 76%)}
+a{color:inherit;text-decoration:none}
+.ico{display:block;flex:0 0 auto}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
+section{position:relative;z-index:1}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--sans);font-weight:700;cursor:pointer;border:1px solid transparent;border-radius:12px;transition:transform .18s,box-shadow .18s,background .18s;white-space:nowrap}
+.btn svg{width:16px;height:16px}
+.btn-primary{background:linear-gradient(180deg,#FCCB45,var(--amber-deep));color:#2A1C05;padding:11px 18px;font-size:14.5px;box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 10px 24px rgba(251,191,36,.26)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 14px 32px rgba(251,191,36,.42)}
+.btn-ghost{background:rgba(243,241,234,.05);color:var(--white);border-color:var(--line);padding:11px 18px;font-size:14.5px}
+.btn-ghost:hover{background:rgba(243,241,234,.09)}
+.btn-hero{padding:14px 24px;font-size:15.5px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,11,14,.72);border-bottom:1px solid var(--line-soft)}
+.nav .row{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-.3px}
+.brand .mk{filter:drop-shadow(0 0 9px rgba(251,191,36,.35))}
+.nav-links{display:flex;align-items:center;gap:30px;font-size:14.5px;color:var(--gray);font-weight:500}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{display:flex;align-items:center;gap:13px}
+.lang{font-size:12.5px;color:var(--gray);border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-weight:600}
+
+/* hero */
+.hero{padding:clamp(34px,5vw,56px) 0 clamp(44px,7vw,84px)}
+.hero .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,4vw,52px);align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(243,241,234,.04);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 7px;font-size:12px;color:var(--gray);font-weight:500;margin-bottom:24px;font-family:var(--mono)}
+.eyebrow .tag{background:var(--amber-soft);color:var(--amber);font-size:10px;font-weight:700;letter-spacing:.6px;padding:3px 9px;border-radius:999px;border:1px solid rgba(251,191,36,.25)}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(36px,5.4vw,58px);line-height:1.01;letter-spacing:-1.8px;color:var(--white)}
+h1 .em{background:linear-gradient(120deg,#FDD873,var(--amber) 55%,#E89A1E);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.tagline{font-size:clamp(16px,2vw,18px);color:var(--gray);margin-top:16px;letter-spacing:-.2px;font-weight:500}
+.tagline b{color:var(--white);font-weight:700}
+.lede{font-size:15.5px;line-height:1.6;color:var(--gray);max-width:470px;margin-top:15px}
+.works{display:flex;align-items:center;gap:14px;margin-top:22px;flex-wrap:wrap}
+.works .lbl{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-2)}
+.chips{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--white);font-weight:600;background:rgba(243,241,234,.04);border:1px solid var(--line);padding:5px 10px;border-radius:8px}
+.chip i{width:8px;height:8px;border-radius:2px}
+.cta-row{display:flex;align-items:center;gap:13px;margin-top:28px;flex-wrap:wrap}
+.guard{display:flex;align-items:center;gap:9px;margin-top:20px;font-size:13px;color:var(--gray)}
+.guard .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(91,208,138,.16);flex:0 0 auto}
+.req{margin-top:8px;font-size:12px;color:var(--gray-2);font-family:var(--mono)}
+
+/* hero stage / product (interactive) */
+.stage{position:relative}
+.glowbg{position:absolute;inset:-10% -6% -16% -6%;z-index:-1;border-radius:30px;background:radial-gradient(58% 60% at 60% 32%,rgba(251,191,36,.2),transparent 70%);filter:blur(30px)}
+.shot{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),var(--bg));box-shadow:0 50px 100px -32px rgba(0,0,0,.85),0 0 0 1px rgba(243,241,234,.03) inset;aspect-ratio:1.12/1}
+.shot .bar{height:38px;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--line-soft);background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
+.shot .bar i{width:11px;height:11px;border-radius:50%}
+.shot .bar .r{background:#ff5f57}.shot .bar .y{background:#febc2e}.shot .bar .g{background:#28c840}
+.shot .bar span{margin-left:8px;font-size:11.5px;color:var(--gray-2);font-family:var(--mono)}
+.vizstage{position:absolute;inset:38px 0 0;display:grid;place-items:center}
+.glow{position:absolute;width:78%;height:78%;border-radius:50%;background:radial-gradient(circle,rgba(255,140,80,.18),rgba(120,90,255,.08) 45%,transparent 70%);filter:blur(24px);animation:breathe 9s ease-in-out infinite;pointer-events:none}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.07);opacity:1}}
+#sun{width:84%;height:84%;overflow:visible}
+#sun path{stroke:var(--bg);stroke-width:2;cursor:pointer;transition:opacity .2s,filter .2s}
+#sun path.dim{opacity:.24}
+.cc{position:absolute;text-align:center;pointer-events:none}
+.cc .p{font-family:var(--mono);font-size:10.5px;color:var(--amber);letter-spacing:.5px}
+.cc .v{font-family:var(--disp);font-weight:700;font-size:clamp(24px,4vw,36px);line-height:1;margin:3px 0;letter-spacing:-1px}
+.cc .n{font-size:12px;color:var(--gray);font-weight:600}
+.float{position:absolute;background:rgba(18,19,25,.95);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:13px;padding:10px 13px;box-shadow:0 22px 46px -16px rgba(0,0,0,.7);display:flex;align-items:center;gap:11px;z-index:4}
+.float .nic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex-shrink:0}
+.float .nt{font-size:12.5px;font-weight:700;color:var(--white)}
+.float .ns{font-size:11px;color:var(--gray-2);margin-top:1px;font-family:var(--mono)}
+.float.a{right:14px;top:50px;transform:rotate(-2deg)}
+.float.a .nic{background:rgba(63,208,201,.16);color:var(--teal)}
+.float.b{left:14px;bottom:14px;transform:rotate(1.5deg)}
+.float.b .pulse{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(91,208,138,.18)}
+.float.b .nt{font-family:var(--mono)}
+
+/* sections */
+.sect{padding:clamp(56px,9vw,108px) 0}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+h2{font-family:var(--disp);font-weight:600;font-size:clamp(27px,4vw,42px);letter-spacing:-1.2px;line-height:1.06}
+.lead{color:var(--gray);font-size:clamp(15px,1.8vw,17px);line-height:1.6;margin-top:14px;max-width:36em}
+.center{text-align:center;margin:0 auto}
+.center .lead{margin-left:auto;margin-right:auto}
+
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:46px}
+.feat{border:1px solid var(--line);border-radius:16px;padding:26px;background:linear-gradient(180deg,rgba(243,241,234,.025),transparent);transition:.18s}
+.feat:hover{border-color:var(--line);transform:translateY(-2px);box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.feat .fi{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;border:1px solid var(--line);background:rgba(243,241,234,.03)}
+.feat h3{font-family:var(--disp);font-size:19px;font-weight:600;margin-bottom:8px}
+.feat p{color:var(--gray);font-size:14px;line-height:1.58}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+.step{border:1px solid var(--line);border-radius:16px;padding:26px;background:linear-gradient(180deg,rgba(243,241,234,.02),transparent)}
+.step .num{font-family:var(--mono);font-weight:600;font-size:13px;color:#2A1C05;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(180deg,#FCCB45,var(--amber-deep));margin-bottom:14px}
+.step h3{font-family:var(--disp);font-size:18px;font-weight:600;margin-bottom:7px}
+.step p{color:var(--gray);font-size:14px;line-height:1.58}
+
+.pricing{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:780px;margin:46px auto 0}
+.plan{border:1px solid var(--line);border-radius:18px;padding:30px;background:linear-gradient(180deg,rgba(243,241,234,.025),transparent)}
+.plan.pro{border-color:rgba(251,191,36,.32);background:radial-gradient(160px 110px at 88% 0%, rgba(251,191,36,.12), transparent 70%),linear-gradient(180deg,rgba(243,241,234,.03),transparent)}
+.plan .tag{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gray-2);font-weight:600}
+.plan.pro .tag{color:var(--amber)}
+.plan .price{font-family:var(--disp);font-weight:700;font-size:44px;margin:8px 0 2px;letter-spacing:-1.5px}
+.plan .price .was{font-size:19px;color:var(--gray-2);text-decoration:line-through;-webkit-text-fill-color:currentColor;margin-left:6px}
+.plan ul{list-style:none;margin:18px 0 24px;display:flex;flex-direction:column;gap:12px}
+.plan li{display:flex;gap:10px;font-size:14px;color:var(--gray);align-items:flex-start}
+.plan li svg{color:var(--green);margin-top:2px;flex:0 0 auto}
+.plan .btn{width:100%}
+
+.faq{max-width:780px;margin:42px auto 0;border-top:1px solid var(--line)}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;text-align:left;background:none;border:0;color:var(--white);font-family:var(--disp);font-size:17px;font-weight:600;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.qa .a{color:var(--gray);font-size:14.5px;line-height:1.62;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.qa.open .a{max-height:260px;padding-bottom:22px}
+.qa .chev{transition:transform .25s;color:var(--gray-2);flex:0 0 auto}
+.qa.open .chev{transform:rotate(180deg)}
+
+.band{text-align:center;border:1px solid var(--line);border-radius:24px;padding:clamp(40px,6vw,68px) var(--gut);background:radial-gradient(440px 220px at 50% 0%, rgba(251,191,36,.12), transparent 70%),linear-gradient(180deg,var(--panel),var(--bg))}
+.band h2{margin-bottom:14px}
+.band .cta-row{justify-content:center}
+
+footer{border-top:1px solid var(--line);margin-top:clamp(56px,9vw,100px);padding:36px 0;color:var(--gray-2);font-size:13px}
+footer .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+footer a:hover{color:var(--gray)}
+
+@media(max-width:860px){
+  .hero .grid{grid-template-columns:1fr;gap:34px}
+  .shot{max-width:460px;margin:8px auto 0;width:100%}
+  .nav-links{display:none}
+  .features,.steps,.pricing{grid-template-columns:1fr}
+  .float{display:none}
+}
+.try .demo-app{margin:46px auto 0;max-width:1000px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(180deg,var(--panel),var(--bg));box-shadow:0 50px 110px -40px rgba(0,0,0,.85),0 0 0 1px rgba(243,241,234,.03) inset}
+.da-bar{height:44px;display:flex;align-items:center;gap:10px;padding:0 16px;border-bottom:1px solid var(--line-soft);background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
+.da-lights{display:flex;gap:7px}.da-lights i{width:11px;height:11px;border-radius:50%}.da-lights .r{background:#ff5f57}.da-lights .y{background:#febc2e}.da-lights .g{background:#28c840}
+.da-title{font-family:var(--mono);font-size:12px;color:var(--gray);margin-left:4px}
+.da-freed{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--gray);font-family:var(--mono)}
+.da-freed b{color:var(--green);font-weight:600}
+.da-pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(91,208,138,.18)}
+.da-body{display:grid;grid-template-columns:1.25fr .75fr;min-height:400px}
+.da-viz{position:relative;display:grid;place-items:center;border-right:1px solid var(--line-soft);padding:20px}
+.da-glow{position:absolute;width:72%;height:72%;border-radius:50%;background:radial-gradient(circle,rgba(255,140,80,.16),rgba(120,90,255,.07) 45%,transparent 70%);filter:blur(26px);pointer-events:none}
+#tsun{width:100%;max-width:380px;aspect-ratio:1;overflow:visible}
+#tsun path{stroke:var(--bg);stroke-width:2.4;cursor:pointer;transition:opacity .18s,filter .18s}
+#tsun path.dim{opacity:.22}
+#tsun path.pick{stroke:#fff;stroke-width:5;filter:brightness(1.18) saturate(1.12);opacity:1!important}
+#tsun.haspick path:not(.pick){opacity:.4}
+.da-cc{position:absolute;text-align:center;pointer-events:none}
+.da-cc .p{font-family:var(--mono);font-size:10px;color:var(--amber)}
+.da-cc .v{font-family:var(--disp);font-weight:700;font-size:30px;letter-spacing:-1px;margin:2px 0;color:var(--white)}
+.da-cc .n{font-size:12px;color:var(--gray);font-weight:600}
+.da-side{display:flex;flex-direction:column;padding:18px}
+.da-collector{flex:1;overflow-y:auto;min-height:130px;max-height:300px}
+.da-empty{color:var(--gray-2);font-size:13px;text-align:center;padding:38px 10px}
+.da-chips{display:flex;flex-direction:column;gap:7px}
+.da-chip{display:flex;align-items:center;gap:9px;background:rgba(243,241,234,.04);border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:12.5px;font-weight:600;color:var(--white);animation:cin .25s both}
+@keyframes cin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.da-chip>b{width:8px;height:8px;border-radius:2px;flex:0 0 auto}
+.da-chip .z{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--gray-2)}
+.da-chip .x{cursor:pointer;color:var(--gray-2);width:18px;height:18px;display:grid;place-items:center;border-radius:5px;flex:0 0 auto}
+.da-chip .x:hover{background:rgba(255,90,80,.16);color:#ff7a72}
+.da-reclaim{width:100%;margin-top:14px}
+.da-reclaim:disabled{opacity:.4;cursor:default;box-shadow:none;transform:none}
+.da-coach{display:flex;align-items:center;gap:14px;padding:13px 18px;border-top:1px solid var(--line-soft);background:rgba(243,241,234,.02)}
+.da-steps{display:flex;gap:6px;flex:0 0 auto}
+.da-steps .dot{width:22px;height:4px;border-radius:3px;background:rgba(243,241,234,.12);transition:.2s}
+.da-steps .dot.on{background:linear-gradient(90deg,#FCCB45,var(--amber-deep))}
+.da-coach-txt{font-size:13.5px;color:var(--gray);flex:1}.da-coach-txt b{color:var(--white);font-weight:700}
+.da-reset{font-family:var(--mono);font-size:11.5px;color:var(--gray);background:rgba(243,241,234,.05);border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer;flex:0 0 auto}
+.da-reset:hover{color:var(--white)}
+@media(max-width:760px){.da-body{grid-template-columns:1fr}.da-viz{border-right:none;border-bottom:1px solid var(--line-soft)}.da-coach{flex-wrap:wrap}}
+.showcase{padding-bottom:clamp(40px,7vw,72px)}
+.sc-frame-wrap{position:relative;max-width:1080px;margin:46px auto 0;perspective:2200px}
+.sc-glow{position:absolute;left:50%;top:0;width:80%;height:86%;transform:translateX(-50%);z-index:0;background:radial-gradient(55% 60% at 50% 28%,rgba(251,191,36,.22),transparent 70%);filter:blur(44px)}
+.sc-frame{position:relative;z-index:1;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 -2px 0 rgba(251,191,36,.14) inset,0 50px 130px -34px rgba(0,0,0,.9);transform:rotateX(6deg);transform-origin:50% 100%}
+.sc-frame img{width:100%;display:block}
+.sc-float{position:absolute;right:5%;top:-3%;z-index:3;transform:rotate(-2deg)}
+.sc-float .pulse{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(91,208,138,.18)}
+.sc-float .nt{font-size:12.5px;font-weight:700;color:var(--white)}.sc-float .ns{font-size:11px;color:var(--gray-2);font-family:var(--mono)}
+@media(max-width:760px){.sc-frame{transform:none}.sc-float{display:none}}
+.hero .demo-app{margin:0;max-width:none;width:100%}
+.hero .da-viz{border-right:none;padding:16px 16px 4px}
+#tsun{width:100%;max-width:394px;aspect-ratio:1;overflow:visible}
+.arclbl{font-family:var(--sans);font-weight:700;fill:#160f08;paint-order:stroke;stroke:rgba(255,255,255,.5);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+.da-tray{display:flex;align-items:center;gap:10px;padding:10px 14px;border-top:1px solid var(--line-soft);min-height:56px}
+.da-tray .da-empty{color:var(--gray-2);font-size:12.5px;flex:1;padding:0;text-align:left}
+.da-tray .da-chips{display:flex;flex-direction:row;gap:7px;overflow-x:auto;overflow-y:hidden;flex:1;min-width:0;scrollbar-width:none;padding:2px}
+.da-tray .da-chips::-webkit-scrollbar{display:none}
+.da-tray .da-reclaim{flex:0 0 auto;width:auto;margin-top:0;padding:11px 18px}
+.da-sum{font-size:13px;color:var(--gray);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.da-sum b{color:var(--white)}
+.da-sum .da-hint{color:var(--gray-2);font-weight:500}
+.hero .copy,.hero .stage{min-width:0}
+.demo-app,.da-tray{min-width:0;max-width:100%}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap row">
+  <a class="brand" href="#top"><img class="mk" src="assets/diskito-logo-mark.png" width="24" height="24" alt="Diskito">Diskito</a>
+  <div class="nav-links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#pricing">Free</a><a href="#faq">FAQ</a><a href="/blog/">Blog</a></div>
+  <div class="nav-cta"><span class="lang">EN</span>
+    <a class="btn btn-primary" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
+  </div>
+</div></nav>
+
+<a id="top"></a>
+<header class="hero"><div class="wrap grid">
+  <div class="copy">
+    <span class="eyebrow"><span class="tag">FREE</span> 5 free cleanups · no account · macOS 14+</span>
+    <h1>See what's <span class="em">eating your disk</span>.</h1>
+    <p class="tagline">One beautiful map. <b>Every gigabyte.</b> Reclaimed in clicks.</p>
+    <p class="lede">Diskito paints your whole Mac as an interactive sunburst, finds the safe-to-delete junk, and moves it to the Trash in one click — reversible until you empty it.</p>
+    <div class="works">
+      <span class="lbl">Finds</span>
+      <span class="chips">
+        <span class="chip"><i style="background:var(--coral)"></i>Big media</span>
+        <span class="chip"><i style="background:var(--amber)"></i>Dev caches</span>
+        <span class="chip"><i style="background:#ff5d5d"></i>Junk &amp; Trash</span>
+      </span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary btn-hero" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
+      <a class="btn btn-ghost btn-hero" href="#showcase"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none"/></svg>See the full app</a>
+    </div>
+    <div class="guard"><span style="display:inline-flex;color:var(--gray-2);flex:0 0 auto"><svg width="14" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span> Nothing is deleted for good — files move to the Trash, recover them anytime.</div>
+    <div class="req">Requires macOS 14 or later · Apple Silicon &amp; Intel</div>
+  </div>
+
+  <div class="stage">
+    <div class="glowbg"></div>
+    <div class="demo-app" id="demoApp">
+      <div class="da-bar">
+        <div class="da-lights"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+        <span class="da-title">Diskito — Macintosh HD</span>
+        <div class="da-freed"><span>Freed <b id="freed">0 GB</b></span></div>
+      </div>
+      <div class="da-viz">
+        <div class="da-glow"></div>
+        <svg id="tsun" viewBox="0 0 1000 1000"></svg>
+        <div class="da-cc" id="tcc"></div>
+      </div>
+      <div class="da-tray">
+        <div class="da-empty" id="tEmpty">Click slices to collect them</div>
+        <div class="da-chips" id="tchips"></div>
+        <button class="btn btn-primary da-reclaim" id="treclaim" disabled>Reclaim 0 GB</button>
+      </div>
+      <div class="da-coach" id="coach">
+        <div class="da-steps"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="da-coach-txt" id="coachTxt"></div>
+        <button class="da-reset" id="treset" style="display:none">Replay</button>
+      </div>
+    </div>
+  </div>
+</div></header>
+
+<section class="sect showcase" id="showcase">
+  <div class="wrap center" style="max-width:720px"><div class="kicker">The whole disk, one screen</div><h2>Your Mac's storage, finally readable.</h2><p class="lead center">Two views — a live sunburst or a treemap — plus your biggest files, smart cleanup and a collector, all in one calm, fast window.</p></div>
+  <div class="wrap"><div class="sc-frame-wrap">
+    <div class="sc-glow"></div>
+    <div class="sc-frame"><img src="assets/diskito-app-treemap.png" alt="Diskito app showing a treemap of a Mac disk with the largest files and a cleanup collector" loading="lazy"></div>
+    <div class="float sc-float"><span><div class="nt">Reclaimed 41.2 GB</div><div class="ns">this session</div></span></div>
+  </div></div>
+</section>
+
+<section class="sect" id="features"><div class="wrap">
+  <div class="center" style="max-width:660px"><div class="kicker">Why Diskito</div><h2>The clearest way to find — and kill — wasted space.</h2><p class="lead">Most disk tools dump a boring list. Diskito shows your whole drive at a glance, so the space hogs are impossible to miss.</p></div>
+  <div class="features">
+    <div class="feat"><div class="fi" style="color:var(--coral)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10l8.5 5"/><circle cx="12" cy="12" r="10"/></svg></div><h3>Sunburst &amp; treemap</h3><p>See every folder as a ring or a map. Click any slice to dive in, reorder by size, and spot the giants instantly.</p></div>
+    <div class="feat"><div class="fi" style="color:var(--teal)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 14A2 2 0 0 0 8.5 12.6L3 11l5.5-1.6A2 2 0 0 0 9.9 8L11.5 2.5 13 8a2 2 0 0 0 1.4 1.4L20 11l-5.5 1.6A2 2 0 0 0 13 14l-1.5 5.5z"/></svg></div><h3>Smart cleanup</h3><p>Diskito finds the safe-to-delete stuff — caches, Xcode DerivedData, node_modules, Trash, old downloads — and adds it all with one click.</p></div>
+    <div class="feat"><div class="fi" style="color:var(--violet)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Collect, then reclaim</h3><p>Tap files to drop them in a collector, review the whole list, and move them all to the Trash in one click — reversible until you empty it.</p></div>
+    <div class="feat"><div class="fi" style="color:var(--amber)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><h3>Instant search</h3><p>Type to find any file or folder across the whole disk, sorted by size — no matter how deep it's buried.</p></div>
+  </div>
+</div></section>
+
+<section class="sect" id="how" style="background:rgba(243,241,234,.014);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)"><div class="wrap">
+  <div class="center" style="max-width:660px"><div class="kicker">How it works</div><h2>Scan. Collect. Reclaim.</h2></div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h3>Scan your disk</h3><p>Diskito reads your drive in seconds and paints the full picture as a glowing sunburst map.</p></div>
+    <div class="step"><div class="num">2</div><h3>Collect the junk</h3><p>Click hogs, or let Smart Cleanup grab the safe stuff. Everything piles into the collector with a running total.</p></div>
+    <div class="step"><div class="num">3</div><h3>Reclaim the space</h3><p>Authorize once and Diskito wipes it all, then shows how much you freed this session.</p></div>
+  </div>
+</div></section>
+
+<section class="sect" id="pricing"><div class="wrap">
+  <div class="center" style="max-width:660px"><div class="kicker">Free to use</div><h2>Free to download. No account.</h2><p class="lead">Visualize your whole disk and try cleaning — free. When you want unlimited cleanup, unlock it later, right inside the app. No subscription, ever.</p></div>
+  <div class="pricing">
+    <div class="plan">
+      <div class="tag">Always free</div>
+      <ul>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full sunburst &amp; treemap, forever</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Search, sorting &amp; smart suggestions</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>5 free cleanups to try deleting</li>
+      </ul>
+      <a class="btn btn-primary" href="#download">Download Free</a>
+    </div>
+    <div class="plan pro">
+      <div class="tag">Pro · unlocks inside</div>
+      <ul>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Unlimited cleanup, no limits</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>License key — works on all your Macs</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lifetime updates, no subscription</li>
+      </ul>
+      <a class="btn btn-ghost" href="#download">Download Free</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="sect" id="faq"><div class="wrap">
+  <div class="center" style="max-width:660px"><div class="kicker">FAQ</div><h2>Good to know.</h2></div>
+  <div class="faq" id="faqList">
+    <div class="qa"><button>What is Diskito?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="a">Diskito is a macOS app that shows what's taking up space on your disk as an interactive sunburst and treemap, then lets you reclaim space by safely deleting caches, junk and large files in one click.</div></div>
+    <div class="qa"><button>Is Diskito free?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="a">Visualizing your disk is free forever, and you get 5 free cleanups to try deleting. When you want unlimited cleanup, you unlock it later right inside the app — no subscription, no account.</div></div>
+    <div class="qa"><button>Does it work on Apple Silicon?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="a">Yes — Diskito is a universal build that runs natively on Apple Silicon (M-series) and Intel Macs, on macOS 14 and later.</div></div>
+  </div>
+</div></section>
+
+<section class="sect" id="download"><div class="wrap"><div class="band">
+  <div class="kicker">Get Diskito</div>
+  <h2>Reclaim your disk in two minutes.</h2>
+  <p class="lead center" style="margin-bottom:26px">Free to download — visualize everything and clean 5 times, no account. macOS 14+.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary btn-hero" href="https://github.com/arturogj92/diskito-site/releases/latest/download/Diskito.zip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
+  </div>
+</div></div></section>
+
+<footer><div class="wrap row">
+  <div class="brand" style="font-size:16px"><img src="assets/diskito-logo-mark.png" width="18" height="18" alt="Diskito">Diskito</div>
+  <div>© 2026 Diskito · <a href="#features">Features</a> · <a href="#faq">FAQ</a> · <a href="/blog/">Blog</a></div>
+</div></footer>
+
+<script>
+/* The hero is now the interactive playable demo (see the IIFE below). */
+
+document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{
+  const qa=b.parentElement;const open=qa.classList.contains('open');
+  document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));
+  if(!open)qa.classList.add('open');
+}));
+
+/* ===== interactive tutorial (mini Diskito) ===== */
+(function(){
+  const SVG=document.getElementById('tsun');if(!SVG)return;
+  const CC=document.getElementById('tcc'),NS='http://www.w3.org/2000/svg',R=[150,290,430],DISK=494;
+  const SRC=[
+    {name:'Media',c:'#ff7a59',ch:[{n:'Final Cut',v:41},{n:'Photos',v:24},{n:'Footage',v:19},{n:'Music',v:13}]},
+    {name:'Developer',c:'#FBBF24',ch:[{n:'Xcode cache',v:19},{n:'iOS DeviceSupport',v:11},{n:'node_modules',v:10},{n:'Docker',v:8}]},
+    {name:'System',c:'#3fd0c9',ch:[{n:'System',v:22},{n:'Library',v:16}]},
+    {name:'Apps',c:'#9b8cff',ch:[{n:'Xcode.app',v:7},{n:'Logic',v:7},{n:'Other apps',v:13}]},
+    {name:'Junk',c:'#ff5d5d',ch:[{n:'Caches',v:8},{n:'Trash',v:4},{n:'Logs',v:2}]}
+  ];
+  const freedEl=document.getElementById('freed'),chipsEl=document.getElementById('tchips'),emptyEl=document.getElementById('tEmpty'),
+        reclaimEl=document.getElementById('treclaim'),coachTxt=document.getElementById('coachTxt'),resetEl=document.getElementById('treset'),
+        dots=document.querySelectorAll('#coach .dot');
+  const XS='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+  let DATA,leaves,PICK,FREED=0,done=0,lastFreed=0,idc;
+  const fmt=v=>v>=100?v.toFixed(0)+' GB':v.toFixed(1)+' GB';
+  function pol(r,a){const rad=(a-90)*Math.PI/180;return[500+r*Math.cos(rad),500+r*Math.sin(rad)];}
+  function arc(ri,ro,a0,a1){if(a1-a0>=360)a1=a0+359.99;const l=(a1-a0)>180?1:0;const[x1,y1]=pol(ro,a0),[x2,y2]=pol(ro,a1),[x3,y3]=pol(ri,a1),[x4,y4]=pol(ri,a0);return `M${x1} ${y1}A${ro} ${ro} 0 ${l} 1 ${x2} ${y2}L${x3} ${y3}A${ri} ${ri} 0 ${l} 0 ${x4} ${y4}Z`;}
+  function shade(hex,amt){let n=parseInt(hex.slice(1),16);let r=Math.min(255,(n>>16)+amt),g=Math.min(255,((n>>8)&255)+amt),b=Math.min(255,(n&255)+amt);return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);}
+  function totalNow(){return DATA.reduce((a,d)=>a+d.v,0);}
+  function pickedTotal(){let s=0;leaves.forEach(l=>{if(PICK.has(l.id))s+=l.v;});return s;}
+  function reset(){const t=totalNow();CC.innerHTML=`<div class="p">USED ${Math.round(t/DISK*100)}%</div><div class="v">${fmt(t)}</div><div class="n">Macintosh HD</div>`;}
+  function focus(name,v,c){CC.innerHTML=`<div class="p" style="color:${c}">${(v/totalNow()*100).toFixed(1)}% OF DISK</div><div class="v">${fmt(v)}</div><div class="n">${name}</div>`;}
+  function init(){DATA=JSON.parse(JSON.stringify(SRC));idc=0;leaves=[];PICK=new Set();DATA.forEach(d=>{d.id='c'+(idc++);d.ch.forEach(c=>{c.id='l'+(idc++);c.pc=d.c;leaves.push(c);});d.v=d.ch.reduce((a,c)=>a+c.v,0);});}
+  function build(){
+    SVG.innerHTML='';const T=totalNow();let a=0;const labels=[];
+    DATA.forEach(d=>{ if(d.v<=0)return; const span=360*d.v/T;
+      mk(R[0],R[1],a,a+span,d.c,d.id,'cat',()=>focus(d.name,d.v,d.c));
+      if(span>=20)labels.push([d.name,a+span/2]);
+      let aa=a; d.ch.forEach((c,ci)=>{const s=span*c.v/d.v;mk(R[1],R[2],aa,aa+s,shade(d.c,18+ci*6),c.id,'leaf',()=>focus(c.n,c.v,d.c));aa+=s;}); a+=span;
+    });
+    labels.forEach(([nm,mid])=>{const[x,y]=pol((R[0]+R[1])/2,mid);const t=document.createElementNS(NS,'text');t.setAttribute('class','arclbl');t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','middle');t.setAttribute('font-size','30');t.textContent=nm;SVG.appendChild(t);});
+    markPick();reset();
+  }
+  function mk(ri,ro,a0,a1,col,id,kind,onf){
+    const p=document.createElementNS(NS,'path');p.setAttribute('d',arc(ri,ro,a0,a1));p.setAttribute('fill',col);p.dataset.id=id;p.dataset.kind=kind;
+    p.addEventListener('mouseenter',()=>{[...SVG.children].forEach(x=>x.classList.add('dim'));p.classList.remove('dim');onf();if(done===0){done=1;render();}});
+    p.addEventListener('mouseleave',()=>{[...SVG.children].forEach(x=>x.classList.remove('dim'));reset();});
+    p.addEventListener('click',()=>{ if(kind==='leaf'){const l=leaves.find(x=>x.id===id);if(PICK.has(id))PICK.delete(id);else PICK.add(id);}else{const d=DATA.find(x=>x.id===id);const allIn=d.ch.every(c=>PICK.has(c.id));d.ch.forEach(c=>allIn?PICK.delete(c.id):PICK.add(c.id));} afterPick(); });
+    SVG.appendChild(p);
+  }
+  function markPick(){[...SVG.children].forEach(p=>{const id=p.dataset.id;let on=false;if(p.dataset.kind==='leaf')on=PICK.has(id);else{const d=DATA.find(x=>x.id===id);on=d&&d.ch.length>0&&d.ch.every(c=>PICK.has(c.id));}p.classList.toggle('pick',on);});SVG.classList.toggle('haspick',PICK.size>0);}
+  function afterPick(){if(PICK.size>0&&done<2)done=2;markPick();render();}
+  function render(){
+    const picks=leaves.filter(l=>PICK.has(l.id));
+    emptyEl.style.display=picks.length?'none':'';
+    chipsEl.innerHTML=picks.length?`<span class="da-sum"><b>${picks.length}</b> selected · <b>${fmt(pickedTotal())}</b> to reclaim · <span class="da-hint">click a slice to remove</span></span>`:'';
+    const tp=pickedTotal();reclaimEl.disabled=tp<=0;reclaimEl.textContent='Reclaim '+fmt(tp);
+    dots.forEach((dt,i)=>dt.classList.toggle('on',i<done));
+    const msgs=['<b>1.</b> Hover any slice to see what it holds.','<b>2.</b> Click slices — try the red junk — to collect them.','<b>3.</b> Now hit <b>Reclaim</b> to free the space.'];
+    if(done<3){coachTxt.innerHTML=msgs[done];resetEl.style.display='none';}
+    else{coachTxt.innerHTML='You freed <b style="color:var(--green)">'+fmt(lastFreed)+'</b> in a few clicks — a real cleanup. <a href="#download" style="color:var(--amber);font-weight:700">Download Diskito free</a>';resetEl.style.display='';}
+    freedEl.textContent=fmt(FREED);
+  }
+  reclaimEl.addEventListener('click',()=>{const tp=pickedTotal();if(tp<=0)return;
+    reclaimEl.disabled=true;
+    // animate: the collected slices shrink + fade away, the Freed counter ticks up
+    SVG.querySelectorAll('path.pick').forEach(p=>{p.style.transition='opacity .5s cubic-bezier(.5,0,.2,1), transform .5s cubic-bezier(.5,0,.2,1)';p.style.transformOrigin='500px 500px';p.style.opacity='0';p.style.transform='scale(.5)';});
+    SVG.classList.remove('haspick');
+    const from=FREED,to=FREED+tp,st=performance.now();
+    (function tick(now){const t=Math.min(1,(now-st)/850),e=1-Math.pow(1-t,3);freedEl.textContent=fmt(from+(to-from)*e);if(t<1)requestAnimationFrame(tick);})(st);
+    setTimeout(()=>{
+      DATA.forEach(d=>{d.ch=d.ch.filter(c=>!PICK.has(c.id));d.v=d.ch.reduce((a,c)=>a+c.v,0);});
+      leaves=leaves.filter(l=>!PICK.has(l.id));PICK.clear();FREED=to;lastFreed=tp;done=3;build();render();
+    },560);});
+  resetEl.addEventListener('click',()=>{init();FREED=0;done=0;build();render();});
+  init();build();done=0;render();
+})();
+</script>
+</body>
+</html>

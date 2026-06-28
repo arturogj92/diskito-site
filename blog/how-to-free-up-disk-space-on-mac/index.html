@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to Free Up Disk Space on Mac (2026): 7 Real Ways</title>
+<meta name="description" content="Your Mac is full? Here are seven real ways to free up disk space on a Mac: empty the Trash, clear caches, delete Xcode DerivedData and node_modules, find large files, and do it in one click with Diskito.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0A0B0E">
+<link rel="canonical" href="https://diskito.app/blog/how-to-free-up-disk-space-on-mac/">
+<link rel="alternate" hreflang="en" href="https://diskito.app/blog/how-to-free-up-disk-space-on-mac/">
+<link rel="alternate" hreflang="es" href="https://diskito.app/blog/es/como-liberar-espacio-en-disco-en-mac/">
+<link rel="alternate" hreflang="x-default" href="https://diskito.app/blog/how-to-free-up-disk-space-on-mac/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Diskito">
+<meta property="og:title" content="How to Free Up Disk Space on Mac (2026): 7 Real Ways">
+<meta property="og:description" content="Seven real ways to free up disk space on a Mac — from emptying the Trash and clearing caches to deleting developer junk and finding large files.">
+<meta property="og:url" content="https://diskito.app/blog/how-to-free-up-disk-space-on-mac/">
+<meta property="og:image" content="https://diskito.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Free Up Disk Space on Mac (2026): 7 Real Ways">
+<meta name="twitter:image" content="https://diskito.app/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Free Up Disk Space on Mac (2026): 7 Real Ways","description":"Seven real ways to free up disk space on a Mac, from emptying the Trash and clearing caches to deleting Xcode DerivedData and node_modules and finding large files.","image":"https://diskito.app/og-image.png","author":{"@type":"Organization","name":"Diskito"},"publisher":{"@type":"Organization","name":"Diskito"},"mainEntityOfPage":"https://diskito.app/blog/how-to-free-up-disk-space-on-mac/","datePublished":"2026-06-28","dateModified":"2026-06-28"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Diskito","item":"https://diskito.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://diskito.app/blog/"},{"@type":"ListItem","position":3,"name":"How to Free Up Disk Space on Mac","item":"https://diskito.app/blog/how-to-free-up-disk-space-on-mac/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is it safe to delete the Library Caches folder on a Mac?","acceptedAnswer":{"@type":"Answer","text":"Yes. Files in ~/Library/Caches are rebuilt by apps as needed, so deleting them is safe. Quit the apps first, and never delete /System or other system folders."}},
+{"@type":"Question","name":"How much disk space can I usually free up on a Mac?","acceptedAnswer":{"@type":"Answer","text":"On a developer or creative Mac it is common to reclaim 20 to 80 GB from caches, Xcode DerivedData, node_modules, old downloads and large media you forgot about."}},
+{"@type":"Question","name":"Why is my Mac startup disk full even after deleting files?","acceptedAnswer":{"@type":"Answer","text":"macOS keeps local snapshots and purgeable space, and the Trash still holds deleted files until emptied. Empty the Trash, restart, and check large hidden folders like Xcode DerivedData and caches."}}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0B0E;--panel:#121319;--white:#F3F1EA;--gray:#A6A29A;--gray-2:#6E6B64;--amber:#FBBF24;--amber-deep:#D9920B;--green:#5BD08A;--line:rgba(243,241,234,.10);--disp:'Bricolage Grotesque',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--gut:clamp(18px,4vw,34px)}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;
+  background-image:radial-gradient(900px 520px at 88% -12%,rgba(251,191,36,.12),transparent 58%),linear-gradient(180deg,var(--bg),#08090C)}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;background-image:radial-gradient(rgba(243,241,234,.05) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(800px 560px at 84% 0,#000,transparent 76%)}
+a{color:var(--amber);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
+.nav{border-bottom:1px solid var(--line);position:sticky;top:0;backdrop-filter:blur(14px);background:rgba(10,11,14,.72);z-index:10}
+.nav .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);height:60px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:18px;color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;border-radius:11px;padding:10px 16px;color:#2A1C05;background:linear-gradient(180deg,#FCCB45,var(--amber-deep));box-shadow:0 8px 22px -8px rgba(251,191,36,.5)}
+.btn svg{width:15px;height:15px}
+article{padding:clamp(28px,5vw,52px) 0 40px}
+.crumb{font-family:var(--mono);font-size:12px;color:var(--gray-2);margin-bottom:18px}
+.crumb a{color:var(--gray)}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1.05;letter-spacing:-1.3px;margin-bottom:14px}
+.meta{font-family:var(--mono);font-size:12.5px;color:var(--gray-2);margin-bottom:8px}
+.lede{font-size:18px;color:var(--gray);margin:18px 0 8px;line-height:1.6}
+article h2{font-family:var(--disp);font-weight:600;font-size:clamp(21px,3vw,27px);letter-spacing:-.6px;margin:38px 0 12px;padding-top:8px}
+article h3{font-size:17px;font-weight:700;margin:22px 0 8px}
+article p{color:#d7d3c8;margin:12px 0}
+article ul,article ol{color:#d7d3c8;margin:12px 0 12px 22px}
+article li{margin:7px 0}
+code{font-family:var(--mono);font-size:.86em;background:rgba(243,241,234,.06);border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:#ffd98a}
+.note{border-left:3px solid var(--amber);background:rgba(251,191,36,.05);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;font-size:14.5px;color:var(--gray)}
+.cta{border:1px solid rgba(251,191,36,.28);border-radius:16px;padding:24px;margin:30px 0;background:radial-gradient(200px 120px at 90% 0,rgba(251,191,36,.12),transparent 70%),linear-gradient(180deg,rgba(243,241,234,.03),transparent);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.cta .mk{flex:0 0 auto}
+.cta h3{font-family:var(--disp);font-weight:700;font-size:19px;margin:0 0 4px}
+.cta p{margin:0;color:var(--gray);font-size:14px}
+.cta .grow{flex:1;min-width:200px}
+.faq{margin-top:30px}
+.faq h2{margin-bottom:6px}
+.qa{border-bottom:1px solid var(--line);padding:16px 0}
+.qa b{display:block;font-family:var(--disp);font-weight:600;font-size:16px;margin-bottom:6px;color:var(--white)}
+.qa p{margin:0;font-size:14.5px;color:var(--gray)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0;color:var(--gray-2);font-size:13px}
+footer .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="row">
+  <a class="brand" href="/"><img src="../../assets/diskito-logo-mark.png" width="22" height="22" alt="Diskito">Diskito</a>
+  <a class="btn" href="https://github.com/arturogj92/diskito-site/releases/latest/download/Diskito.zip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
+</div></nav>
+
+<article class="wrap">
+  <div class="crumb"><a href="/">Diskito</a> / <a href="/blog/">Blog</a> / Free up disk space on Mac · <a href="../es/como-liberar-espacio-en-disco-en-mac/">ES</a></div>
+  <div class="meta">Guide · macOS 14+ · Updated June 2026</div>
+  <h1>How to Free Up Disk Space on Mac: 7 Real Ways</h1>
+  <p class="lede">A full Mac is almost never about photos. It is caches, old developer builds, forgotten downloads and a couple of giant video files hiding three folders deep. Here is how to find them and get the space back, fastest path first.</p>
+
+  <h2>First, see what is actually using the space</h2>
+  <p>Before deleting anything, look at where the gigabytes went. The built-in view is <strong>Apple menu &rarr; System Settings &rarr; General &rarr; Storage</strong>. It is fine for a rough idea, but it groups everything into vague buckets like "System Data" and "Documents".</p>
+  <p>For the real picture, a disk map shows every folder by size at a glance, so the space hogs are impossible to miss. That is exactly what <a href="/">Diskito</a> does — a sunburst and treemap of your whole drive — but you can do all of the steps below by hand too.</p>
+
+  <h2>1. Empty the Trash (all of them)</h2>
+  <p>Deleted files sit in the Trash and still count against your disk until you empty it. Right-click the Trash in the Dock and choose <strong>Empty Trash</strong>. Remember the hidden ones too: Photos, Mail and many apps keep their own "Recently Deleted" that holds files for up to 30 days.</p>
+
+  <h2>2. Clear app and browser caches</h2>
+  <p>Apps stash temporary data in <code>~/Library/Caches</code>. It is safe to delete — apps rebuild what they need. In Finder press <code>Cmd+Shift+G</code>, paste the path, and remove the largest folders (quit the apps first).</p>
+  <p>Browsers are often the worst offenders. In Chrome, <strong>Settings &rarr; Privacy &rarr; Delete browsing data &rarr; Cached images and files</strong> can free several gigabytes on its own.</p>
+  <div class="note">Never delete <code>/System</code>, <code>/Library</code> at the root, or anything you do not recognise. Stick to <code>~/Library/Caches</code> inside your home folder.</div>
+
+  <h2>3. Delete developer junk (this is usually the big one)</h2>
+  <p>If you write code, this is where tens of gigabytes hide:</p>
+  <ul>
+    <li><code>~/Library/Developer/Xcode/DerivedData</code> — build artefacts, regenerated automatically. Often 10&ndash;30 GB.</li>
+    <li><code>~/Library/Developer/Xcode/iOS DeviceSupport</code> — old debug symbols for devices you no longer use.</li>
+    <li><strong>node_modules</strong> — every old project keeps its own copy. Delete them in projects you are not touching; <code>npm install</code> brings them back.</li>
+    <li><strong>Docker</strong> — <code>~/Library/Containers/com.docker.docker</code> and the Docker.raw disk image can balloon to many gigabytes.</li>
+  </ul>
+
+  <h2>4. Find the large files you forgot about</h2>
+  <p>In <strong>Storage &rarr; Documents &rarr; Large Files</strong> macOS lists big files, but it misses anything inside app bundles or hidden folders. From Terminal you can sweep your home folder:</p>
+  <p><code>find ~ -type f -size +1G 2&gt;/dev/null</code></p>
+  <p>The usual suspects are old screen recordings, <code>.dmg</code> installers, exported video, and virtual-machine images.</p>
+
+  <h2>5. Clean out Downloads and old installers</h2>
+  <p>The Downloads folder is where disk space goes to die. Sort it by size, delete the <code>.dmg</code> and <code>.pkg</code> installers you already ran, and clear out duplicate exports.</p>
+
+  <h2>6. Offload photos and message attachments</h2>
+  <p>Turn on <strong>Optimise Mac Storage</strong> in Photos and iCloud so full-resolution originals live in the cloud. In Messages, large videos and images pile up fast — <strong>Settings &rarr; General &rarr; Storage &rarr; Messages</strong> lets you review and delete the biggest.</p>
+
+  <h2>7. Remove apps you do not use (properly)</h2>
+  <p>Dragging an app to the Trash leaves behind caches, preferences and support files. Remove the app, then check <code>~/Library/Application Support</code> and <code>~/Library/Caches</code> for its leftover folder.</p>
+
+  <div class="cta">
+    <svg class="mk" width="46" height="46" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="rgba(243,241,234,.22)" stroke-width="2.4"/><path d="M12 3.5A8.5 8.5 0 0 1 17 19.6" stroke="#FBBF24" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <div class="grow"><h3>Or do all seven in one click</h3><p>Diskito maps your disk, finds the safe-to-delete junk above automatically, and reclaims the space in one authorised sweep. Free to visualise, 5 free cleanups, then 3 EUR once.</p></div>
+    <a class="btn" href="/">See Diskito</a>
+  </div>
+
+  <div class="faq">
+    <h2>FAQ</h2>
+    <div class="qa"><b>Is it safe to delete the Library Caches folder?</b><p>Yes. Files in <code>~/Library/Caches</code> are rebuilt by apps as needed, so deleting them is safe. Quit the apps first, and never touch <code>/System</code>.</p></div>
+    <div class="qa"><b>How much space can I usually free up?</b><p>On a developer or creative Mac it is common to reclaim 20 to 80 GB from caches, Xcode DerivedData, node_modules, old downloads and large media you forgot about.</p></div>
+    <div class="qa"><b>Why is my startup disk full even after deleting files?</b><p>macOS keeps local snapshots and purgeable space, and the Trash holds deleted files until emptied. Empty the Trash, restart, then check the big hidden folders like DerivedData and caches.</p></div>
+  </div>
+</article>
+
+<footer><div class="row">
+  <div class="brand" style="font-size:15px"><img src="../../assets/diskito-logo-mark.png" width="16" height="16" alt="Diskito">Diskito</div>
+  <div>© 2026 Diskito · <a href="/">Home</a> · <a href="/blog/">Blog</a></div>
+</div></footer>
+</body>
+</html>

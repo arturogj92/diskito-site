@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cómo liberar espacio en disco en Mac (2026): 7 formas reales</title>
+<meta name="description" content="¿El Mac lleno? Aquí tienes siete formas reales de liberar espacio en disco en un Mac: vaciar la papelera, borrar cachés, eliminar DerivedData de Xcode y node_modules, encontrar archivos grandes, y hacerlo en un clic con Diskito.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0A0B0E">
+<link rel="canonical" href="https://diskito.app/blog/es/como-liberar-espacio-en-disco-en-mac/">
+<link rel="alternate" hreflang="en" href="https://diskito.app/blog/how-to-free-up-disk-space-on-mac/">
+<link rel="alternate" hreflang="es" href="https://diskito.app/blog/es/como-liberar-espacio-en-disco-en-mac/">
+<link rel="alternate" hreflang="x-default" href="https://diskito.app/blog/how-to-free-up-disk-space-on-mac/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Diskito">
+<meta property="og:title" content="Cómo liberar espacio en disco en Mac (2026): 7 formas reales">
+<meta property="og:description" content="Siete formas reales de liberar espacio en disco en un Mac, desde vaciar la papelera y borrar cachés hasta eliminar la basura de desarrollo y encontrar archivos grandes.">
+<meta property="og:url" content="https://diskito.app/blog/es/como-liberar-espacio-en-disco-en-mac/">
+<meta property="og:image" content="https://diskito.app/og-image.png">
+<meta property="og:locale" content="es">
+<meta property="og:locale:alternate" content="en">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cómo liberar espacio en disco en Mac (2026): 7 formas reales">
+<meta name="twitter:image" content="https://diskito.app/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cómo liberar espacio en disco en Mac (2026): 7 formas reales","description":"Siete formas reales de liberar espacio en disco en un Mac, desde vaciar la papelera y borrar cachés hasta eliminar DerivedData de Xcode y node_modules y encontrar archivos grandes.","image":"https://diskito.app/og-image.png","inLanguage":"es","author":{"@type":"Organization","name":"Diskito"},"publisher":{"@type":"Organization","name":"Diskito"},"mainEntityOfPage":"https://diskito.app/blog/es/como-liberar-espacio-en-disco-en-mac/","datePublished":"2026-06-28","dateModified":"2026-06-28"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Diskito","item":"https://diskito.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://diskito.app/blog/es/"},{"@type":"ListItem","position":3,"name":"Cómo liberar espacio en disco en Mac","item":"https://diskito.app/blog/es/como-liberar-espacio-en-disco-en-mac/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"es","mainEntity":[
+{"@type":"Question","name":"¿Es seguro borrar la carpeta Library Caches en un Mac?","acceptedAnswer":{"@type":"Answer","text":"Sí. Los archivos de ~/Library/Caches los regeneran las apps cuando los necesitan, así que borrarlos es seguro. Cierra las apps primero y nunca borres /System ni otras carpetas del sistema."}},
+{"@type":"Question","name":"¿Cuánto espacio se suele poder liberar en un Mac?","acceptedAnswer":{"@type":"Answer","text":"En un Mac de desarrollo o creativo es habitual recuperar de 20 a 80 GB de cachés, DerivedData de Xcode, node_modules, descargas viejas y archivos grandes olvidados."}},
+{"@type":"Question","name":"¿Por qué el disco de arranque sigue lleno aunque borre archivos?","acceptedAnswer":{"@type":"Answer","text":"macOS guarda snapshots locales y espacio purgable, y la Papelera conserva lo borrado hasta vaciarla. Vacía la Papelera, reinicia y revisa carpetas ocultas grandes como DerivedData y las cachés."}}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0B0E;--panel:#121319;--white:#F3F1EA;--gray:#A6A29A;--gray-2:#6E6B64;--amber:#FBBF24;--amber-deep:#D9920B;--green:#5BD08A;--line:rgba(243,241,234,.10);--disp:'Bricolage Grotesque',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--gut:clamp(18px,4vw,34px)}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;
+  background-image:radial-gradient(900px 520px at 88% -12%,rgba(251,191,36,.12),transparent 58%),linear-gradient(180deg,var(--bg),#08090C)}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;background-image:radial-gradient(rgba(243,241,234,.05) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(800px 560px at 84% 0,#000,transparent 76%)}
+a{color:var(--amber);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
+.nav{border-bottom:1px solid var(--line);position:sticky;top:0;backdrop-filter:blur(14px);background:rgba(10,11,14,.72);z-index:10}
+.nav .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);height:60px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:18px;color:var(--white)}
+.brand img{display:block;filter:drop-shadow(0 0 8px rgba(251,150,80,.3))}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;border-radius:11px;padding:10px 16px;color:#2A1C05;background:linear-gradient(180deg,#FCCB45,var(--amber-deep));box-shadow:0 8px 22px -8px rgba(251,191,36,.5)}
+.btn svg{width:15px;height:15px}
+article{padding:clamp(28px,5vw,52px) 0 40px}
+.crumb{font-family:var(--mono);font-size:12px;color:var(--gray-2);margin-bottom:18px}
+.crumb a{color:var(--gray)}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.05;letter-spacing:-1.3px;margin-bottom:14px}
+.meta{font-family:var(--mono);font-size:12.5px;color:var(--gray-2);margin-bottom:8px}
+.lede{font-size:18px;color:var(--gray);margin:18px 0 8px;line-height:1.6}
+article h2{font-family:var(--disp);font-weight:600;font-size:clamp(21px,3vw,27px);letter-spacing:-.6px;margin:38px 0 12px;padding-top:8px}
+article p{color:#d7d3c8;margin:12px 0}
+article ul{color:#d7d3c8;margin:12px 0 12px 22px}
+article li{margin:7px 0}
+code{font-family:var(--mono);font-size:.86em;background:rgba(243,241,234,.06);border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:#ffd98a}
+.note{border-left:3px solid var(--amber);background:rgba(251,191,36,.05);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;font-size:14.5px;color:var(--gray)}
+.cta{border:1px solid rgba(251,191,36,.28);border-radius:16px;padding:24px;margin:30px 0;background:radial-gradient(200px 120px at 90% 0,rgba(251,191,36,.12),transparent 70%),linear-gradient(180deg,rgba(243,241,234,.03),transparent);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.cta img{flex:0 0 auto;filter:drop-shadow(0 0 10px rgba(251,150,80,.3))}
+.cta h3{font-family:var(--disp);font-weight:700;font-size:19px;margin:0 0 4px}
+.cta p{margin:0;color:var(--gray);font-size:14px}
+.cta .grow{flex:1;min-width:200px}
+.faq{margin-top:30px}.faq h2{margin-bottom:6px}
+.qa{border-bottom:1px solid var(--line);padding:16px 0}
+.qa b{display:block;font-family:var(--disp);font-weight:600;font-size:16px;margin-bottom:6px;color:var(--white)}
+.qa p{margin:0;font-size:14.5px;color:var(--gray)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0;color:var(--gray-2);font-size:13px}
+footer .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="row">
+  <a class="brand" href="/"><img src="../../../assets/diskito-logo-mark.png" width="22" height="22" alt="Diskito">Diskito</a>
+  <a class="btn" href="https://github.com/arturogj92/diskito-site/releases/latest/download/Diskito.zip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Descargar gratis</a>
+</div></nav>
+
+<article class="wrap">
+  <div class="crumb"><a href="/">Diskito</a> / <a href="/blog/es/">Blog</a> / Liberar espacio en disco en Mac · <a href="../../how-to-free-up-disk-space-on-mac/">EN</a></div>
+  <div class="meta">Guía · macOS 14+ · Actualizado junio 2026</div>
+  <h1>Cómo liberar espacio en disco en Mac: 7 formas reales</h1>
+  <p class="lede">Un Mac lleno casi nunca es por las fotos. Son cachés, builds viejos de desarrollo, descargas olvidadas y un par de vídeos enormes escondidos tres carpetas más abajo. Aquí tienes cómo encontrarlos y recuperar el espacio, empezando por lo más rápido.</p>
+
+  <h2>Primero: mira qué está ocupando el espacio de verdad</h2>
+  <p>Antes de borrar nada, mira dónde se han ido los gigas. La vista integrada está en <strong>menú Apple &rarr; Ajustes del Sistema &rarr; General &rarr; Almacenamiento</strong>. Sirve para hacerte una idea, pero lo agrupa todo en cajones vagos como "Datos del sistema" y "Documentos".</p>
+  <p>Para verlo de verdad, un mapa de disco te muestra cada carpeta por tamaño de un vistazo, así los que más ocupan son imposibles de no ver. Eso es justo lo que hace <a href="/">Diskito</a> —un sunburst y un treemap de todo tu disco— pero también puedes hacer todos los pasos de abajo a mano.</p>
+
+  <h2>1. Vacía la Papelera (todas)</h2>
+  <p>Los archivos borrados se quedan en la Papelera y siguen contando hasta que la vacías. Haz clic derecho en la Papelera del Dock y elige <strong>Vaciar la Papelera</strong>. Acuérdate también de las ocultas: Fotos, Mail y muchas apps tienen su propia carpeta de "Eliminados recientemente" que guarda archivos hasta 30 días.</p>
+
+  <h2>2. Borra las cachés de apps y navegadores</h2>
+  <p>Las apps guardan datos temporales en <code>~/Library/Caches</code>. Es seguro borrarlo: las apps reconstruyen lo que necesitan. En el Finder pulsa <code>Cmd+Mayús+G</code>, pega la ruta y elimina las carpetas más grandes (cierra las apps primero).</p>
+  <p>Los navegadores suelen ser los peores. En Chrome, <strong>Configuración &rarr; Privacidad &rarr; Borrar datos de navegación &rarr; Archivos e imágenes en caché</strong> puede liberar varios gigas él solo.</p>
+  <div class="note">Nunca borres <code>/System</code>, ni <code>/Library</code> en la raíz, ni nada que no reconozcas. Quédate en <code>~/Library/Caches</code> dentro de tu carpeta de usuario.</div>
+
+  <h2>3. Borra la basura de desarrollo (suele ser la gorda)</h2>
+  <p>Si programas, aquí es donde se esconden decenas de gigas:</p>
+  <ul>
+    <li><code>~/Library/Developer/Xcode/DerivedData</code> — artefactos de compilación, se regeneran solos. A menudo 10&ndash;30 GB.</li>
+    <li><code>~/Library/Developer/Xcode/iOS DeviceSupport</code> — símbolos de depuración de dispositivos que ya no usas.</li>
+    <li><strong>node_modules</strong> — cada proyecto viejo guarda su propia copia. Bórralas en los proyectos que no tocas; <code>npm install</code> las vuelve a traer.</li>
+    <li><strong>Docker</strong> — <code>~/Library/Containers/com.docker.docker</code> y la imagen Docker.raw pueden inflarse a muchos gigas.</li>
+  </ul>
+
+  <h2>4. Encuentra los archivos grandes que olvidaste</h2>
+  <p>En <strong>Almacenamiento &rarr; Documentos &rarr; Archivos grandes</strong> macOS lista los archivos pesados, pero se le escapa lo que hay dentro de paquetes de apps o carpetas ocultas. Desde la Terminal puedes barrer tu carpeta de usuario:</p>
+  <p><code>find ~ -type f -size +1G 2&gt;/dev/null</code></p>
+  <p>Los sospechosos habituales son grabaciones de pantalla viejas, instaladores <code>.dmg</code>, vídeo exportado e imágenes de máquinas virtuales.</p>
+
+  <h2>5. Limpia Descargas e instaladores viejos</h2>
+  <p>La carpeta Descargas es donde el espacio va a morir. Ordénala por tamaño, borra los instaladores <code>.dmg</code> y <code>.pkg</code> que ya ejecutaste y quita las exportaciones duplicadas.</p>
+
+  <h2>6. Descarga fotos y adjuntos de mensajes a la nube</h2>
+  <p>Activa <strong>Optimizar almacenamiento del Mac</strong> en Fotos e iCloud para que los originales a resolución completa vivan en la nube. En Mensajes, los vídeos e imágenes grandes se acumulan rápido: <strong>Ajustes &rarr; General &rarr; Almacenamiento &rarr; Mensajes</strong> te deja revisar y borrar los más pesados.</p>
+
+  <h2>7. Quita las apps que no usas (bien)</h2>
+  <p>Arrastrar una app a la Papelera deja atrás cachés, preferencias y archivos de soporte. Quita la app y luego revisa <code>~/Library/Application Support</code> y <code>~/Library/Caches</code> por si queda su carpeta.</p>
+
+  <div class="cta">
+    <img src="../../../assets/diskito-logo-mark.png" width="46" height="46" alt="Diskito">
+    <div class="grow"><h3>O haz los siete en un clic</h3><p>Diskito mapea tu disco, encuentra solo la basura segura de arriba y recupera el espacio en una pasada autorizada. Gratis para visualizar, 5 limpiezas gratis para probar.</p></div>
+    <a class="btn" href="/">Ver Diskito</a>
+  </div>
+
+  <div class="faq">
+    <h2>Preguntas frecuentes</h2>
+    <div class="qa"><b>¿Es seguro borrar la carpeta Library Caches?</b><p>Sí. Los archivos de <code>~/Library/Caches</code> los regeneran las apps cuando los necesitan, así que borrarlos es seguro. Cierra las apps primero y nunca toques <code>/System</code>.</p></div>
+    <div class="qa"><b>¿Cuánto espacio se suele poder liberar?</b><p>En un Mac de desarrollo o creativo es habitual recuperar de 20 a 80 GB de cachés, DerivedData de Xcode, node_modules, descargas viejas y archivos grandes olvidados.</p></div>
+    <div class="qa"><b>¿Por qué el disco de arranque sigue lleno aunque borre cosas?</b><p>macOS guarda snapshots locales y espacio purgable, y la Papelera conserva lo borrado hasta vaciarla. Vacía la Papelera, reinicia y revisa las carpetas ocultas grandes como DerivedData y las cachés.</p></div>
+  </div>
+</article>
+
+<footer><div class="row">
+  <div class="brand" style="font-size:15px"><img src="../../../assets/diskito-logo-mark.png" width="16" height="16" alt="Diskito">Diskito</div>
+  <div>© 2026 Diskito · <a href="/">Inicio</a> · <a href="/blog/es/">Blog</a></div>
+</div></footer>
+</body>
+</html>
