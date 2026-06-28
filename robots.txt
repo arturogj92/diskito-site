@@ -11,4 +11,4 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-Sitemap: https://diskito.app/sitemap.xml
+Sitemap: https://diskito.com/sitemap.xml

@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://diskito.app/</loc>
+    <loc>https://diskito.com/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://diskito.app/blog/</loc>
+    <loc>https://diskito.com/blog/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.app/blog/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.app/blog/es/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.app/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/"/>
   </url>
   <url>
-    <loc>https://diskito.app/blog/es/</loc>
+    <loc>https://diskito.com/blog/es/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.app/blog/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.app/blog/es/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.app/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/"/>
   </url>
 
   <url>
-    <loc>https://diskito.app/blog/how-to-free-up-disk-space-on-mac/</loc>
+    <loc>https://diskito.com/blog/how-to-free-up-disk-space-on-mac/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.app/blog/how-to-free-up-disk-space-on-mac/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.app/blog/es/como-liberar-espacio-en-disco-en-mac/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.app/blog/how-to-free-up-disk-space-on-mac/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.com/blog/how-to-free-up-disk-space-on-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/como-liberar-espacio-en-disco-en-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/how-to-free-up-disk-space-on-mac/"/>
   </url>
   <url>
-    <loc>https://diskito.app/blog/es/como-liberar-espacio-en-disco-en-mac/</loc>
+    <loc>https://diskito.com/blog/es/como-liberar-espacio-en-disco-en-mac/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.app/blog/how-to-free-up-disk-space-on-mac/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.app/blog/es/como-liberar-espacio-en-disco-en-mac/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.app/blog/how-to-free-up-disk-space-on-mac/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.com/blog/how-to-free-up-disk-space-on-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/como-liberar-espacio-en-disco-en-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/how-to-free-up-disk-space-on-mac/"/>
   </url>
 </urlset>

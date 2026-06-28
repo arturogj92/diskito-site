@@ -6,13 +6,13 @@ Diskito maps every gigabyte on your drive so the space hogs are impossible to mi
 
 ## Product
 
-- [Diskito home](https://diskito.app/): What Diskito is, the sunburst and treemap views, smart cleanup, the collector, system requirements (macOS 14+), the 5 free cleanups, the one-time 3 EUR unlock, and the FAQ.
+- [Diskito home](https://diskito.com/): What Diskito is, the sunburst and treemap views, smart cleanup, the collector, system requirements (macOS 14+), the 5 free cleanups, the one-time 3 EUR unlock, and the FAQ.
 - [Download Diskito (.zip)](https://github.com/arturogj92/diskito-site/releases/latest/download/Diskito.zip): Direct download of the latest notarized Diskito.zip build for macOS 14 and later.
 
 ## Guides (English)
 
-- [How to Free Up Disk Space on Mac](https://diskito.app/blog/how-to-free-up-disk-space-on-mac/): Seven real ways to free up disk space on a Mac, from emptying the Trash and clearing caches to deleting Xcode DerivedData and node_modules, finding large files, and doing it in one click with Diskito.
+- [How to Free Up Disk Space on Mac](https://diskito.com/blog/how-to-free-up-disk-space-on-mac/): Seven real ways to free up disk space on a Mac, from emptying the Trash and clearing caches to deleting Xcode DerivedData and node_modules, finding large files, and doing it in one click with Diskito.
 
 ## Guias (Espanol)
 
-- [Como liberar espacio en disco en Mac](https://diskito.app/blog/es/como-liberar-espacio-en-disco-en-mac/): Siete formas reales de liberar espacio en disco en un Mac, desde vaciar la Papelera y borrar caches hasta eliminar DerivedData de Xcode y node_modules, encontrar archivos grandes, y hacerlo en un clic con Diskito.
+- [Como liberar espacio en disco en Mac](https://diskito.com/blog/es/como-liberar-espacio-en-disco-en-mac/): Siete formas reales de liberar espacio en disco en un Mac, desde vaciar la Papelera y borrar caches hasta eliminar DerivedData de Xcode y node_modules, encontrar archivos grandes, y hacerlo en un clic con Diskito.
