@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What Is Taking Up Space on My Mac? (and Why node_modules Is the Heaviest Object in the Universe)</title>
+<meta name="description" content="What is taking up space on my Mac? It is rarely photos. The real space hogs — caches, Xcode DerivedData, node_modules, iOS backups, Docker — plus what the mysterious Other and System Data really are, and how to see what is taking up the most space on your Mac.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0A0B0E">
+<link rel="canonical" href="https://diskito.com/blog/what-is-taking-up-space-on-my-mac/">
+<link rel="alternate" hreflang="en" href="https://diskito.com/blog/what-is-taking-up-space-on-my-mac/">
+<link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/que-ocupa-espacio-en-mi-mac/">
+<link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/what-is-taking-up-space-on-my-mac/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Diskito">
+<meta property="og:title" content="What Is Taking Up Space on My Mac? (and Why node_modules Is the Heaviest Object in the Universe)">
+<meta property="og:description" content="The real space hogs on a Mac are almost never your photos. What is taking up space on my Mac — caches, Xcode DerivedData, node_modules, iOS backups, Docker — plus what Other and System Data really are.">
+<meta property="og:url" content="https://diskito.com/blog/what-is-taking-up-space-on-my-mac/">
+<meta property="og:image" content="https://diskito.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Is Taking Up Space on My Mac? (and Why node_modules Is the Heaviest Object in the Universe)">
+<meta name="twitter:image" content="https://diskito.com/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"What Is Taking Up Space on My Mac? (and Why node_modules Is the Heaviest Object in the Universe)","description":"The real space hogs on a Mac are almost never your photos. A guide to what is taking up space on my Mac — caches, Xcode DerivedData, node_modules, iOS backups, Docker, plus the Other and System Data categories — and how to find every one.","image":"https://diskito.com/og-image.png","author":{"@type":"Organization","name":"Diskito"},"publisher":{"@type":"Organization","name":"Diskito"},"mainEntityOfPage":"https://diskito.com/blog/what-is-taking-up-space-on-my-mac/","datePublished":"2026-06-28","dateModified":"2026-06-28"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Diskito","item":"https://diskito.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://diskito.com/blog/"},{"@type":"ListItem","position":3,"name":"What's taking up space on my Mac","item":"https://diskito.com/blog/what-is-taking-up-space-on-my-mac/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is taking up the most space on my Mac?","acceptedAnswer":{"@type":"Answer","text":"On most Macs the biggest hidden hogs are caches, Xcode DerivedData, node_modules folders, old iOS device backups, Docker images, the Photos library, the Downloads folder and Mail attachments. Photos and documents are usually smaller than people expect."}},
+{"@type":"Question","name":"What is the Other and System Data taking up space on my Mac?","acceptedAnswer":{"@type":"Answer","text":"Other and System Data are catch-all buckets macOS uses for caches, logs, local Time Machine snapshots, virtual-memory swap, fonts, plugins and anything the storage screen cannot classify. They look mysterious because the built-in view will not show the folders inside them. A disk map reveals the real folders so the bucket stops being a mystery."}},
+{"@type":"Question","name":"How do I see what is taking up space on my Mac?","acceptedAnswer":{"@type":"Answer","text":"Start with the Apple menu, System Settings, General, Storage for a rough idea. To check or find out what is taking up the most space, use a disk map that draws every folder by size, or run du -sh * inside a folder from Terminal to see which subfolders are largest."}}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0B0E;--panel:#121319;--white:#F3F1EA;--gray:#A6A29A;--gray-2:#6E6B64;--amber:#FBBF24;--amber-deep:#D9920B;--green:#5BD08A;--line:rgba(243,241,234,.10);--disp:'Bricolage Grotesque',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--gut:clamp(18px,4vw,34px)}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;
+  background-image:radial-gradient(900px 520px at 88% -12%,rgba(251,191,36,.12),transparent 58%),linear-gradient(180deg,var(--bg),#08090C)}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;background-image:radial-gradient(rgba(243,241,234,.05) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(800px 560px at 84% 0,#000,transparent 76%)}
+a{color:var(--amber);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
+.nav{border-bottom:1px solid var(--line);position:sticky;top:0;backdrop-filter:blur(14px);background:rgba(10,11,14,.72);z-index:10}
+.nav .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);height:60px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:18px;color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;border-radius:11px;padding:10px 16px;color:#2A1C05;background:linear-gradient(180deg,#FCCB45,var(--amber-deep));box-shadow:0 8px 22px -8px rgba(251,191,36,.5)}
+.btn svg{width:15px;height:15px}
+article{padding:clamp(28px,5vw,52px) 0 40px}
+.crumb{font-family:var(--mono);font-size:12px;color:var(--gray-2);margin-bottom:18px}
+.crumb a{color:var(--gray)}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.05;letter-spacing:-1.3px;margin-bottom:14px}
+.meta{font-family:var(--mono);font-size:12.5px;color:var(--gray-2);margin-bottom:8px}
+.lede{font-size:18px;color:var(--gray);margin:18px 0 8px;line-height:1.6}
+article h2{font-family:var(--disp);font-weight:600;font-size:clamp(21px,3vw,27px);letter-spacing:-.6px;margin:38px 0 12px;padding-top:8px}
+article h3{font-size:17px;font-weight:700;margin:22px 0 8px}
+article p{color:#d7d3c8;margin:12px 0}
+article ul,article ol{color:#d7d3c8;margin:12px 0 12px 22px}
+article li{margin:7px 0}
+code{font-family:var(--mono);font-size:.86em;background:rgba(243,241,234,.06);border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:#ffd98a}
+.note{border-left:3px solid var(--amber);background:rgba(251,191,36,.05);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;font-size:14.5px;color:var(--gray)}
+.cta{border:1px solid rgba(251,191,36,.28);border-radius:16px;padding:24px;margin:30px 0;background:radial-gradient(200px 120px at 90% 0,rgba(251,191,36,.12),transparent 70%),linear-gradient(180deg,rgba(243,241,234,.03),transparent);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.cta .mk{flex:0 0 auto}
+.cta h3{font-family:var(--disp);font-weight:700;font-size:19px;margin:0 0 4px}
+.cta p{margin:0;color:var(--gray);font-size:14px}
+.cta .grow{flex:1;min-width:200px}
+.faq{margin-top:30px}
+.faq h2{margin-bottom:6px}
+.qa{border-bottom:1px solid var(--line);padding:16px 0}
+.qa b{display:block;font-family:var(--disp);font-weight:600;font-size:16px;margin-bottom:6px;color:var(--white)}
+.qa p{margin:0;font-size:14.5px;color:var(--gray)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0;color:var(--gray-2);font-size:13px}
+footer .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+  <script defer src="https://umami-codeagentswarm-production.up.railway.app/script.js" data-website-id="984cf209-a159-414b-914f-a6a0c660a2d7"></script>
+</head>
+<body>
+<nav class="nav"><div class="row">
+  <a class="brand" href="/"><img src="../../assets/diskito-logo-mark.png" width="22" height="22" alt="Diskito">Diskito</a>
+  <a class="btn" href="https://dl.diskito.com/diskito?src=blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
+</div></nav>
+
+<article class="wrap">
+  <div class="crumb"><a href="/">Diskito</a> / <a href="/blog/">Blog</a> / What's taking up space on my Mac · <a href="../es/que-ocupa-espacio-en-mi-mac/">ES</a></div>
+  <div class="meta">Guide · macOS 14+ · Updated June 2026</div>
+  <h1>What Is Taking Up Space on My Mac?</h1>
+  <p class="lede">There is a running joke about the heaviest objects in the universe: neutron stars, black holes, and somewhere on that list, the <code>node_modules</code> folder. It is a joke because it is true. Whatever filled your Mac, it was almost certainly not your holiday photos. Here is what is taking up space on my Mac in practice, and how to find every gigabyte.</p>
+
+  <h2>The honest answer: it is rarely your files</h2>
+  <p>When a Mac fills up, most people start deleting photos and documents. That is the wrong drawer. A modern Mac spends its disk on invisible things that grow quietly in the background — build artefacts, caches, package folders, device backups and virtual machines. They live inside hidden <code>~/Library</code> folders and inside app data, so you never scroll past them in Finder.</p>
+  <p>The built-in storage screen — <strong>Apple menu &rarr; System Settings &rarr; General &rarr; Storage</strong> — confirms this. It shows a bar split into vague buckets, and the biggest ones are usually the most useless: <strong>System Data</strong> and, on older macOS, <strong>Other</strong>. Those buckets are where macOS hides everything it cannot neatly label, which is exactly the stuff eating your disk.</p>
+
+  <h2>The usual space hogs, in order of how often they are the culprit</h2>
+  <p>These are the folders that show up at the top of nearly every full Mac:</p>
+  <ul>
+    <li><strong>Caches</strong> — <code>~/Library/Caches</code> holds temporary data for every app and browser. Safe to clear; apps rebuild what they need. Often several gigabytes on its own.</li>
+    <li><strong>node_modules</strong> — every JavaScript project keeps its own private copy of its dependencies. Ten old side projects means ten copies of roughly the same hundreds of megabytes. This is the heaviest object in the universe for a reason.</li>
+    <li><strong>Xcode DerivedData</strong> — <code>~/Library/Developer/Xcode/DerivedData</code> stores build output that regenerates automatically. Frequently 10&ndash;30 GB if you build iOS or Mac apps.</li>
+    <li><strong>iOS device backups</strong> — <code>~/Library/Application Support/MobileSync/Backup</code> keeps full backups of iPhones and iPads, including devices you no longer own. Each one can be tens of gigabytes.</li>
+    <li><strong>Docker</strong> — images, containers and the <code>Docker.raw</code> disk image grow without ever shrinking. It is common to see Docker holding more space than your entire Applications folder.</li>
+    <li><strong>The Photos library</strong> — only big if you are not using Optimise Mac Storage. With it off, every full-resolution original lives locally.</li>
+    <li><strong>Downloads</strong> — the folder where disk space goes to die: old <code>.dmg</code> installers, exported videos, duplicate ZIPs.</li>
+    <li><strong>Mail attachments</strong> — Mail downloads and caches every attachment, and that cache quietly reaches gigabytes over the years.</li>
+  </ul>
+
+  <h2>Why node_modules really is so heavy</h2>
+  <p>It is not one giant file — it is hundreds of thousands of tiny ones. Each package pulls in its own dependencies, which pull in theirs, and the tree fans out until a single project can hold tens of thousands of files. The size is bad; the file <em>count</em> is worse, because it makes copying, backing up and even measuring the folder slow.</p>
+  <p>The good news: it is completely disposable. Delete <code>node_modules</code> in any project you are not actively working on, and a single <code>npm install</code> brings it back exactly as it was. You are not losing code, only a rebuildable cache.</p>
+
+  <h2>What the "Other" and "System Data" categories really are</h2>
+  <p>If the storage bar says something is taking up so much space on my Mac but the label is just <strong>Other</strong> or <strong>System Data</strong>, that is not a glitch — it is macOS giving up on classifying it. Both are catch-all buckets, and between them they hold the bulk of the mystery gigabytes:</p>
+  <ul>
+    <li><strong>Caches and logs</strong> that do not belong to any one app category.</li>
+    <li><strong>Local Time Machine snapshots</strong> stored on the startup disk when the backup drive is not connected.</li>
+    <li><strong>Virtual-memory swap</strong> and sleep-image files.</li>
+    <li><strong>Fonts, plugins, extensions</strong> and system support files.</li>
+    <li><strong>Disk images and archives</strong> macOS cannot match to Documents or Apps.</li>
+  </ul>
+  <p>The storage screen will never show you the folders inside Other or System Data, which is why it feels like a black box. The fix is not to attack the bucket directly — it is to look at the actual folders underneath it, which is what a disk map does. For the safe, step-by-step cleanup of those folders, see our guide on <a href="/blog/how-to-free-up-disk-space-on-mac/">how to free up disk space on Mac</a>.</p>
+
+  <h2>How to see and check what is taking up space on my Mac</h2>
+  <p>The fastest manual method is the Terminal. Open it and run this inside any folder to see which subfolders are the largest, biggest last:</p>
+  <p><code>du -sh * 2&gt;/dev/null | sort -h</code></p>
+  <p>Start in your home folder, find the biggest subfolder, <code>cd</code> into it, and run it again. A few rounds of this and you will land on the real culprit. To jump straight to giant single files anywhere in your home folder:</p>
+  <p><code>find ~ -type f -size +1G 2&gt;/dev/null</code></p>
+  <div class="note">Stay inside your home folder (paths that start with <code>~</code>). Never delete <code>/System</code> or the root <code>/Library</code>, and never remove anything you do not recognise.</div>
+
+  <h2>Or just look at the map</h2>
+  <p>Drilling through folders with <code>du</code> works, but it is slow and you have to know where to look. A disk map does the same thing visually and instantly: it draws every folder as a slice sized by how much space it holds, so the heaviest object in the universe is simply the biggest slice on screen. <a href="/">Diskito</a> scans your whole drive into a sunburst and a treemap, groups the safe-to-delete junk above into one place, and lets you move it to the Trash in a click. You see what is taking up space, then reclaim it, without memorising a single path.</p>
+
+  <div class="cta">
+    <svg class="mk" width="46" height="46" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="rgba(243,241,234,.22)" stroke-width="2.4"/><path d="M12 3.5A8.5 8.5 0 0 1 17 19.6" stroke="#FBBF24" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <div class="grow"><h3>See it on a map in seconds</h3><p>Diskito turns your whole drive into a sunburst and treemap, surfaces the caches, node_modules and build junk automatically, and reclaims the space in one click. Free to visualise, with free cleanups to try.</p></div>
+    <a class="btn" href="https://dl.diskito.com/diskito?src=blog">Download Diskito</a>
+  </div>
+
+  <div class="faq">
+    <h2>FAQ</h2>
+    <div class="qa"><b>What is taking up the most space on my Mac?</b><p>The biggest hidden hogs are caches, Xcode DerivedData, node_modules, old iOS device backups, Docker images, the Photos library, Downloads and Mail attachments. Your actual documents are usually smaller than you think.</p></div>
+    <div class="qa"><b>What is the "Other" and "System Data" taking up space on my Mac?</b><p>Both are catch-all buckets for caches, logs, local snapshots, swap, fonts and anything macOS cannot classify. They look mysterious only because the storage screen will not show the folders inside them — a disk map will.</p></div>
+    <div class="qa"><b>How do I see what is taking up space on my Mac?</b><p>Start with System Settings &rarr; General &rarr; Storage for a rough idea, then use a disk map or run <code>du -sh * | sort -h</code> inside a folder to check which subfolders are largest.</p></div>
+  </div>
+</article>
+
+<footer><div class="row">
+  <div class="brand" style="font-size:15px"><img src="../../assets/diskito-logo-mark.png" width="16" height="16" alt="Diskito">Diskito</div>
+  <div>© 2026 Diskito · <a href="/">Home</a> · <a href="/blog/">Blog</a></div>
+</div></footer>
+</body>
+</html>

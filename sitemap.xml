@@ -45,4 +45,61 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/como-liberar-espacio-en-disco-en-mac/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/how-to-free-up-disk-space-on-mac/"/>
   </url>
+
+  <url>
+    <loc>https://diskito.com/blog/what-is-taking-up-space-on-my-mac/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.com/blog/what-is-taking-up-space-on-my-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/que-ocupa-espacio-en-mi-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/what-is-taking-up-space-on-my-mac/"/>
+  </url>
+  <url>
+    <loc>https://diskito.com/blog/es/que-ocupa-espacio-en-mi-mac/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.com/blog/what-is-taking-up-space-on-my-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/que-ocupa-espacio-en-mi-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/what-is-taking-up-space-on-my-mac/"/>
+  </url>
+
+  <url>
+    <loc>https://diskito.com/blog/how-to-clear-cache-on-mac/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.com/blog/how-to-clear-cache-on-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/como-borrar-la-cache-en-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/how-to-clear-cache-on-mac/"/>
+  </url>
+  <url>
+    <loc>https://diskito.com/blog/es/como-borrar-la-cache-en-mac/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.com/blog/how-to-clear-cache-on-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/como-borrar-la-cache-en-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/how-to-clear-cache-on-mac/"/>
+  </url>
+
+  <url>
+    <loc>https://diskito.com/blog/startup-disk-full-mac/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.com/blog/startup-disk-full-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/disco-de-arranque-lleno-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/startup-disk-full-mac/"/>
+  </url>
+  <url>
+    <loc>https://diskito.com/blog/es/disco-de-arranque-lleno-mac/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diskito.com/blog/startup-disk-full-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/disco-de-arranque-lleno-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/startup-disk-full-mac/"/>
+  </url>
 </urlset>

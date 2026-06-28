@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>¿Disco de arranque lleno en Mac? Cómo arreglar "El disco está casi lleno" (2026)</title>
+<meta name="description" content="¿Te sale el aviso 'Tu disco de arranque está casi lleno' en el Mac? Aquí tienes por qué pasa, las soluciones inmediatas, qué se puede borrar sin riesgo y qué no, cómo funcionan el espacio purgable y los snapshots de APFS, y cómo arreglarlo de verdad.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0A0B0E">
+<link rel="canonical" href="https://diskito.com/blog/es/disco-de-arranque-lleno-mac/">
+<link rel="alternate" hreflang="en" href="https://diskito.com/blog/startup-disk-full-mac/">
+<link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/disco-de-arranque-lleno-mac/">
+<link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/startup-disk-full-mac/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Diskito">
+<meta property="og:title" content="¿Disco de arranque lleno en Mac? Cómo arreglar &quot;El disco está casi lleno&quot;">
+<meta property="og:description" content="Por qué sale el aviso de disco de arranque lleno en un Mac, las soluciones inmediatas, qué se puede borrar sin riesgo, cómo funcionan el espacio purgable y los snapshots de APFS, y cómo arreglarlo de verdad.">
+<meta property="og:url" content="https://diskito.com/blog/es/disco-de-arranque-lleno-mac/">
+<meta property="og:image" content="https://diskito.com/og-image.png">
+<meta property="og:locale" content="es">
+<meta property="og:locale:alternate" content="en">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¿Disco de arranque lleno en Mac? Cómo arreglar &quot;El disco está casi lleno&quot;">
+<meta name="twitter:image" content="https://diskito.com/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"¿Disco de arranque lleno en Mac? Cómo arreglar El disco está casi lleno","description":"Por qué sale el aviso de disco de arranque lleno en un Mac, las soluciones inmediatas, qué se puede borrar sin riesgo, cómo funcionan el espacio purgable y los snapshots de APFS, y cómo arreglarlo de verdad.","image":"https://diskito.com/og-image.png","inLanguage":"es","author":{"@type":"Organization","name":"Diskito"},"publisher":{"@type":"Organization","name":"Diskito"},"mainEntityOfPage":"https://diskito.com/blog/es/disco-de-arranque-lleno-mac/","datePublished":"2026-06-28","dateModified":"2026-06-28"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Diskito","item":"https://diskito.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://diskito.com/blog/es/"},{"@type":"ListItem","position":3,"name":"Disco de arranque lleno en Mac","item":"https://diskito.com/blog/es/disco-de-arranque-lleno-mac/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"es","mainEntity":[
+{"@type":"Question","name":"¿Por qué mi Mac dice que el disco de arranque está casi lleno?","acceptedAnswer":{"@type":"Answer","text":"macOS muestra el aviso cuando el volumen de arranque se queda con poco espacio libre. Las causas habituales son cachés, copias de seguridad viejas y carpetas de compilación de desarrollo, además de los snapshots locales de Time Machine y el espacio purgable que la pantalla de almacenamiento esconde dentro de Datos del sistema."}},
+{"@type":"Question","name":"¿Qué es el espacio purgable en un Mac?","acceptedAnswer":{"@type":"Answer","text":"El espacio purgable son datos que macOS puede borrar automáticamente cuando necesita sitio, como archivos en caché y snapshots locales. En algunas herramientas sigue contando como espacio usado, por eso un disco puede parecer lleno aunque borres archivos. Liberar espacio real empuja a macOS a soltarlo."}},
+{"@type":"Question","name":"¿Cómo libero espacio en el disco de arranque del Mac?","acceptedAnswer":{"@type":"Answer","text":"Para liberar espacio en el disco de arranque de un Mac, vacía la Papelera, borra ~/Library/Caches, elimina el DerivedData de Xcode y los node_modules viejos, quita las copias de iOS antiguas y los archivos grandes de Descargas, y reinicia. El reinicio deja que macOS purgue los snapshots locales y recupere el espacio purgable."}}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0B0E;--panel:#121319;--white:#F3F1EA;--gray:#A6A29A;--gray-2:#6E6B64;--amber:#FBBF24;--amber-deep:#D9920B;--green:#5BD08A;--line:rgba(243,241,234,.10);--disp:'Bricolage Grotesque',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--gut:clamp(18px,4vw,34px)}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;
+  background-image:radial-gradient(900px 520px at 88% -12%,rgba(251,191,36,.12),transparent 58%),linear-gradient(180deg,var(--bg),#08090C)}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;background-image:radial-gradient(rgba(243,241,234,.05) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(800px 560px at 84% 0,#000,transparent 76%)}
+a{color:var(--amber);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
+.nav{border-bottom:1px solid var(--line);position:sticky;top:0;backdrop-filter:blur(14px);background:rgba(10,11,14,.72);z-index:10}
+.nav .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);height:60px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:18px;color:var(--white)}
+.brand img{display:block;filter:drop-shadow(0 0 8px rgba(251,150,80,.3))}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;border-radius:11px;padding:10px 16px;color:#2A1C05;background:linear-gradient(180deg,#FCCB45,var(--amber-deep));box-shadow:0 8px 22px -8px rgba(251,191,36,.5)}
+.btn svg{width:15px;height:15px}
+article{padding:clamp(28px,5vw,52px) 0 40px}
+.crumb{font-family:var(--mono);font-size:12px;color:var(--gray-2);margin-bottom:18px}
+.crumb a{color:var(--gray)}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(26px,5vw,42px);line-height:1.05;letter-spacing:-1.3px;margin-bottom:14px}
+.meta{font-family:var(--mono);font-size:12.5px;color:var(--gray-2);margin-bottom:8px}
+.lede{font-size:18px;color:var(--gray);margin:18px 0 8px;line-height:1.6}
+article h2{font-family:var(--disp);font-weight:600;font-size:clamp(21px,3vw,27px);letter-spacing:-.6px;margin:38px 0 12px;padding-top:8px}
+article h3{font-size:17px;font-weight:700;margin:22px 0 8px}
+article p{color:#d7d3c8;margin:12px 0}
+article ul,article ol{color:#d7d3c8;margin:12px 0 12px 22px}
+article li{margin:7px 0}
+code{font-family:var(--mono);font-size:.86em;background:rgba(243,241,234,.06);border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:#ffd98a}
+.note{border-left:3px solid var(--amber);background:rgba(251,191,36,.05);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;font-size:14.5px;color:var(--gray)}
+.cta{border:1px solid rgba(251,191,36,.28);border-radius:16px;padding:24px;margin:30px 0;background:radial-gradient(200px 120px at 90% 0,rgba(251,191,36,.12),transparent 70%),linear-gradient(180deg,rgba(243,241,234,.03),transparent);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.cta img{flex:0 0 auto;filter:drop-shadow(0 0 10px rgba(251,150,80,.3))}
+.cta h3{font-family:var(--disp);font-weight:700;font-size:19px;margin:0 0 4px}
+.cta p{margin:0;color:var(--gray);font-size:14px}
+.cta .grow{flex:1;min-width:200px}
+.faq{margin-top:30px}.faq h2{margin-bottom:6px}
+.qa{border-bottom:1px solid var(--line);padding:16px 0}
+.qa b{display:block;font-family:var(--disp);font-weight:600;font-size:16px;margin-bottom:6px;color:var(--white)}
+.qa p{margin:0;font-size:14.5px;color:var(--gray)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0;color:var(--gray-2);font-size:13px}
+footer .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+  <script defer src="https://umami-codeagentswarm-production.up.railway.app/script.js" data-website-id="984cf209-a159-414b-914f-a6a0c660a2d7"></script>
+</head>
+<body>
+<nav class="nav"><div class="row">
+  <a class="brand" href="/"><img src="../../../assets/diskito-logo-mark.png" width="22" height="22" alt="Diskito">Diskito</a>
+  <a class="btn" href="https://dl.diskito.com/diskito?src=blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Descargar gratis</a>
+</div></nav>
+
+<article class="wrap">
+  <div class="crumb"><a href="/">Diskito</a> / <a href="/blog/es/">Blog</a> / Disco de arranque lleno en Mac · <a href="../../startup-disk-full-mac/">EN</a></div>
+  <div class="meta">Guía · macOS 14+ · Actualizado junio 2026</div>
+  <h1>¿Disco de arranque lleno en Mac? Cómo arreglarlo</h1>
+  <p class="lede">El mensaje "Tu disco de arranque está casi lleno" suele aparecer en el peor momento — a mitad de una exportación, de una actualización, de una entrega. La buena noticia es que un Mac casi nunca está tan lleno como dice. Aquí tienes por qué pasa y cómo recuperar aire, empezando por lo más rápido.</p>
+
+  <h2>Qué significa de verdad "disco de arranque"</h2>
+  <p>Tu disco de arranque es el volumen desde el que arranca macOS, normalmente llamado <strong>Macintosh HD</strong>. macOS necesita espacio libre en él para funcionar: para memoria virtual, actualizaciones de apps y archivos temporales. Cuando ese espacio libre baja demasiado, sale el aviso, y el Mac empieza a ir lento porque no tiene dónde poner sus datos temporales.</p>
+  <p>Mira el estado actual en <strong>menú Apple &rarr; Ajustes del Sistema &rarr; General &rarr; Almacenamiento</strong>. Apunta la cifra y obsérvala mientras avanzas por los pasos de abajo.</p>
+
+  <h2>Soluciones inmediatas (haz estas primero)</h2>
+  <ol>
+    <li><strong>Vacía la Papelera.</strong> Los archivos borrados siguen contando hasta que la vacías. Vacía la del Dock y también los "Eliminados recientemente" por app de Fotos y Mail.</li>
+    <li><strong>Borra las cachés de usuario.</strong> En el Finder pulsa <code>Cmd+Mayús+G</code>, pega <code>~/Library/Caches</code> y borra el contenido de las carpetas más grandes. Es seguro: las apps lo reconstruyen.</li>
+    <li><strong>Vacía la carpeta Descargas.</strong> Ordena por tamaño y quita los instaladores <code>.dmg</code> y <code>.pkg</code> viejos y las exportaciones duplicadas.</li>
+    <li><strong>Borra la basura de compilación de desarrollo.</strong> <code>~/Library/Developer/Xcode/DerivedData</code> y los <code>node_modules</code> viejos suelen ser los mayores tirones — a veces decenas de gigas — y ambos se regeneran cuando hacen falta.</li>
+    <li><strong>Reinicia.</strong> Un reinicio deja que macOS purgue los snapshots locales y suelte el espacio purgable, que es donde suelen esconderse los gigas "perdidos".</li>
+  </ol>
+
+  <h2>Espacio purgable y snapshots de APFS: la parte que confunde a todos</h2>
+  <p>Esta es la razón de que un Mac siga "lleno" aunque borres un montón de archivos. macOS guarda dos tipos de datos invisibles en el volumen de arranque:</p>
+  <ul>
+    <li><strong>Espacio purgable</strong> — archivos en caché y contenido descargable que macOS borrará automáticamente <em>cuando necesite el sitio</em>. Hasta entonces aparece como usado. Algunas herramientas informan del espacio usado total incluyendo el purgable, así que el disco parece más lleno de lo que está.</li>
+    <li><strong>Snapshots locales de Time Machine</strong> — cuando Time Machine no llega a su disco de copia, guarda snapshots cada hora en el propio disco de arranque. Pueden ocupar muchos gigas y son justo lo que infla "Datos del sistema".</li>
+  </ul>
+  <p>La forma fiable de obligar a macOS a soltar esto es <strong>crear espacio libre de verdad</strong> (borrar archivos reales) y luego <strong>reiniciar</strong>. macOS adelgaza los snapshots viejos automáticamente en cuanto el volumen está bajo presión. También puedes ver los snapshots desde la Terminal con <code>tmutil listlocalsnapshots /</code>.</p>
+  <div class="note">No te pongas a cazar snapshots ni espacio purgable para borrarlos a mano. Libera archivos reales y reinicia — macOS recupera el resto solo. Evita las apps de terceros que prometen "borrar el espacio purgable"; rara vez hacen lo que dicen.</div>
+
+  <h2>Qué es seguro borrar y qué no</h2>
+  <p><strong>Seguro:</strong> el contenido de la Papelera, el contenido de <code>~/Library/Caches</code>, el DerivedData de Xcode, los <code>node_modules</code> viejos, las copias de iOS antiguas en <code>~/Library/Application Support/MobileSync/Backup</code>, los instaladores de Descargas y los archivos grandes que ya tengas respaldados.</p>
+  <p><strong>No seguro:</strong> nada de <code>/System</code> ni de la <code>/Library</code> de la raíz, las carpetas ocultas de <code>/private/var</code>, ni ninguna carpeta que no reconozcas. Borrar de ahí puede impedir que macOS arranque.</p>
+
+  <h2>Evita que vuelva a pasar</h2>
+  <p>Activa <strong>Optimizar almacenamiento del Mac</strong> en Fotos e iCloud Drive para que los originales vivan en la nube, y vigila las carpetas de compilación si programas — se vuelven a llenar rápido. Si quieres el recorrido completo más allá de este arreglo de emergencia, nuestra guía sobre <a href="/blog/es/como-liberar-espacio-en-disco-en-mac/">cómo liberar espacio en disco en Mac</a> cubre cada paso en orden.</p>
+  <p>El arreglo más sencillo a largo plazo es ver tu disco de verdad: <a href="/">Diskito</a> dibuja todo tu disco de arranque como un sunburst y un treemap, así que en cuanto algo se infla lo detectas y lo mueves a la Papelera de un clic, reversible hasta que la vacíes. Sin adivinar qué carpeta creció.</p>
+
+  <div class="cta">
+    <img src="../../../assets/diskito-logo-mark.png" width="46" height="46" alt="Diskito">
+    <div class="grow"><h3>Ve exactamente qué llenó tu disco</h3><p>Diskito mapea tu disco de arranque, encuentra automáticamente la basura segura que hay detrás de "Datos del sistema" y la recupera de un clic. Gratis para visualizar, con limpiezas gratis para probar.</p></div>
+    <a class="btn" href="https://dl.diskito.com/diskito?src=blog">Descargar Diskito</a>
+  </div>
+
+  <div class="faq">
+    <h2>Preguntas frecuentes</h2>
+    <div class="qa"><b>¿Por qué mi Mac dice que el disco de arranque está casi lleno?</b><p>El volumen de arranque tiene poco espacio libre. Las causas habituales son cachés, copias viejas y carpetas de compilación de desarrollo, además de los snapshots locales de Time Machine y el espacio purgable escondidos dentro de "Datos del sistema".</p></div>
+    <div class="qa"><b>¿Qué es el espacio purgable en un Mac?</b><p>Datos que macOS puede borrar automáticamente cuando necesita sitio, como archivos en caché y snapshots locales. En algunas herramientas sigue apareciendo como usado, por eso un disco puede parecer lleno tras borrar archivos. Liberar espacio real y reiniciar empuja a macOS a soltarlo.</p></div>
+    <div class="qa"><b>¿Cómo libero espacio en el disco de arranque del Mac?</b><p>Para liberar espacio en el disco de arranque, vacía la Papelera, borra <code>~/Library/Caches</code>, elimina el DerivedData de Xcode y los node_modules viejos, quita las copias de iOS antiguas y los archivos grandes de Descargas, y reinicia para que macOS purgue los snapshots locales.</p></div>
+  </div>
+</article>
+
+<footer><div class="row">
+  <div class="brand" style="font-size:15px"><img src="../../../assets/diskito-logo-mark.png" width="16" height="16" alt="Diskito">Diskito</div>
+  <div>© 2026 Diskito · <a href="/">Inicio</a> · <a href="/blog/es/">Blog</a></div>
+</div></footer>
+</body>
+</html>

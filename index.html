@@ -182,7 +182,7 @@ h2{font-family:var(--disp);font-weight:600;font-size:clamp(27px,4vw,42px);letter
 .plan.pro .tag{color:var(--amber)}
 .plan .price{font-family:var(--disp);font-weight:700;font-size:44px;margin:8px 0 2px;letter-spacing:-1.5px}
 .plan .price .was{font-size:19px;color:var(--gray-2);text-decoration:line-through;-webkit-text-fill-color:currentColor;margin-left:6px}
-.plan ul{list-style:none;margin:18px 0 24px;display:flex;flex-direction:column;gap:12px}
+.plan ul{list-style:none;margin:18px 0 2px;display:flex;flex-direction:column;gap:12px}
 .plan li{display:flex;gap:10px;font-size:14px;color:var(--gray);align-items:flex-start}
 .plan li svg{color:var(--green);margin-top:2px;flex:0 0 auto}
 .plan .btn{width:100%}
@@ -219,17 +219,7 @@ footer a:hover{color:var(--gray)}
   .glowbg{left:0;right:0}
 }
 .try .demo-app{margin:46px auto 0;max-width:1000px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(180deg,var(--panel),var(--bg));box-shadow:0 50px 110px -40px rgba(0,0,0,.85),0 0 0 1px rgba(243,241,234,.03) inset}
-.da-bar{position:relative;height:42px;display:flex;align-items:center;gap:10px;padding:0 15px;border-bottom:1px solid rgba(0,0,0,.45);background:linear-gradient(180deg,#23252e,#191b22);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
-.da-lights{display:flex;gap:8px;align-items:center;position:relative;z-index:2}
-.da-lights i{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.22),inset 0 1px 1px rgba(255,255,255,.4)}
-.da-lights .r{background:radial-gradient(circle at 32% 28%,#ff9a93,#ff5f57 60%,#df443c)}
-.da-lights .y{background:radial-gradient(circle at 32% 28%,#ffdc8c,#febc2e 60%,#df9f1c)}
-.da-lights .g{background:radial-gradient(circle at 32% 28%,#9def9d,#28c840 60%,#15a32f)}
-.da-winttl{position:absolute;left:50%;top:0;height:100%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;pointer-events:none;max-width:64%;z-index:1}
-.da-winttl img{border-radius:4px;opacity:.96;filter:drop-shadow(0 0 5px rgba(251,191,36,.3))}
-.da-winttl span{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--white);letter-spacing:-.2px}
-.da-winttl em{font-style:normal;font-size:12.5px;color:var(--gray-2);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.da-freed{margin-left:auto;display:none;align-items:center;gap:6px;font-size:11.5px;color:var(--gray);font-family:var(--mono);position:relative;z-index:2;animation:cin .3s both}
+.da-freed{display:none;align-items:center;gap:6px;font-size:11.5px;color:var(--gray);font-family:var(--mono);animation:cin .3s both}
 .da-freed svg{width:13px;height:13px;color:var(--green);flex:0 0 auto}
 .da-freed b{color:var(--green);font-weight:600}
 .da-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;height:46px;padding:0 14px;border-bottom:1px solid var(--line-soft);background:linear-gradient(180deg,rgba(255,255,255,.022),rgba(255,255,255,0))}
@@ -284,7 +274,7 @@ footer a:hover{color:var(--gray)}
 .sc-float .pulse{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(91,208,138,.18)}
 .sc-float .nt{font-size:12.5px;font-weight:700;color:var(--white)}.sc-float .ns{font-size:11px;color:var(--gray-2);font-family:var(--mono)}
 @media(max-width:760px){.sc-frame{transform:none}.sc-float{display:none}}
-.hero .demo-app{margin:0;max-width:none;width:100%;border:1px solid rgba(243,241,234,.12);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,var(--panel),var(--bg));box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 0 0 1px rgba(0,0,0,.55),0 44px 96px -30px rgba(0,0,0,.92),0 14px 34px -14px rgba(0,0,0,.6)}
+.hero .demo-app{margin:0;max-width:none;width:100%;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(180deg,rgba(243,241,234,.03),transparent);box-shadow:0 34px 72px -40px rgba(0,0,0,.7)}
 .hero .da-viz{position:relative;border-right:none;padding:16px 16px 6px;min-height:380px}
 #tsun{width:100%;max-width:394px;aspect-ratio:1;overflow:visible}
 .da-tm{position:absolute;inset:14px;border-radius:11px;overflow:hidden;display:none;background:rgba(8,9,12,.55)}
@@ -315,7 +305,7 @@ footer a:hover{color:var(--gray)}
   <a class="brand" href="#top"><img class="mk" src="assets/diskito-logo-mark.png" width="24" height="24" alt="Diskito">Diskito</a>
   <div class="nav-links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#pricing">Free</a><a href="#faq">FAQ</a><a href="/blog/">Blog</a></div>
   <div class="nav-cta"><span class="lang">EN</span>
-    <a class="btn btn-primary" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
+    <a class="btn btn-primary" href="#download" data-dl="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
   </div>
 </div></nav>
 
@@ -335,8 +325,7 @@ footer a:hover{color:var(--gray)}
       </span>
     </div>
     <div class="cta-row">
-      <a class="btn btn-primary btn-hero" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
-      <a class="btn btn-ghost btn-hero" href="#showcase"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none"/></svg>See the full app</a>
+      <a class="btn btn-primary btn-hero" href="#download" data-dl="hero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
     </div>
     <div class="guard"><span style="display:inline-flex;color:var(--gray-2);flex:0 0 auto"><svg width="14" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span> Nothing is deleted for good — files move to the Trash, recover them anytime.</div>
     <div class="req">Requires macOS 14 or later · Apple Silicon &amp; Intel</div>
@@ -345,17 +334,15 @@ footer a:hover{color:var(--gray)}
   <div class="stage">
     <div class="glowbg"></div>
     <div class="demo-app" id="demoApp">
-      <div class="da-bar">
-        <div class="da-lights"><i class="r"></i><i class="y"></i><i class="g"></i></div>
-        <div class="da-winttl"><img src="assets/diskito-logo-mark.png" width="15" height="15" alt=""><span>Diskito</span><em>— Macintosh HD</em></div>
-        <div class="da-freed" id="freedWrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Freed <b id="freed">0 GB</b></span></div>
-      </div>
       <div class="da-toolbar">
         <div class="da-seg" id="tseg">
           <button class="on" data-v="sun" title="Sunburst view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6"/></svg>Sunburst</button>
           <button data-v="tree" title="Treemap view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="11" rx="1"/><rect x="13" y="3" width="8" height="7" rx="1"/><rect x="13" y="12" width="8" height="9" rx="1"/><rect x="3" y="16" width="8" height="5" rx="1"/></svg>Treemap</button>
         </div>
-        <div class="da-cap"><span class="da-cap-bar"><i id="capBar" style="width:0%"></i></span><span class="da-cap-txt" id="capTxt"></span></div>
+        <div class="da-cap">
+          <div class="da-freed" id="freedWrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Freed <b id="freed">0 GB</b></span></div>
+          <span class="da-cap-bar"><i id="capBar" style="width:0%"></i></span><span class="da-cap-txt" id="capTxt"></span>
+        </div>
       </div>
       <div class="da-viz">
         <div class="da-glow"></div>
@@ -415,7 +402,6 @@ footer a:hover{color:var(--gray)}
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Search, sorting &amp; smart suggestions</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>5 free cleanups to try deleting</li>
       </ul>
-      <a class="btn btn-primary" href="#download">Download Free</a>
     </div>
     <div class="plan pro">
       <div class="tag">Pro · unlocks inside</div>
@@ -424,8 +410,10 @@ footer a:hover{color:var(--gray)}
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>License key — works on all your Macs</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lifetime updates, no subscription</li>
       </ul>
-      <a class="btn btn-ghost" href="#download">Download Free</a>
     </div>
+  </div>
+  <div class="cta-row" style="justify-content:center;margin-top:32px">
+    <a class="btn btn-primary btn-hero" href="https://dl.diskito.com/diskito?src=pricing" data-dl="pricing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
   </div>
 </div></section>
 
@@ -443,7 +431,7 @@ footer a:hover{color:var(--gray)}
   <h2>Reclaim your disk in two minutes.</h2>
   <p class="lead center" style="margin-bottom:26px">Free to download — visualize everything and clean 5 times, no account. macOS 14+.</p>
   <div class="cta-row">
-    <a class="btn btn-primary btn-hero" href="https://dl.diskito.com/diskito?src=site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
+    <a class="btn btn-primary btn-hero" href="https://dl.diskito.com/diskito?src=site" data-dl="final"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
   </div>
 </div></div></section>
 
@@ -460,6 +448,10 @@ document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()
   document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));
   if(!open)qa.classList.add('open');
 }));
+
+/* ===== umami custom events (safe, non-blocking) ===== */
+function track(n,d){try{if(window.umami)d?window.umami.track(n,d):window.umami.track(n)}catch(e){}}
+document.querySelectorAll('[data-dl]').forEach(a=>a.addEventListener('click',()=>track('download',{src:a.dataset.dl})));
 
 /* ===== interactive tutorial (mini Diskito) ===== */
 (function(){
@@ -522,7 +514,7 @@ document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()
     TM.querySelectorAll('.da-cell').forEach(el=>{ const id=el.dataset.id,l=leaves.find(x=>x.id===id);
       el.addEventListener('mouseenter',()=>{if(l)focus(l.n,l.v,l.pc);if(done===0){done=1;render();}});
       el.addEventListener('mouseleave',()=>reset());
-      el.addEventListener('click',()=>{if(PICK.has(id))PICK.delete(id);else PICK.add(id);afterPick();});
+      el.addEventListener('click',()=>{if(PICK.has(id))PICK.delete(id);else{PICK.add(id);track('demo-collect');}afterPick();});
     });
     updateCap();
   }
@@ -535,7 +527,7 @@ document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()
     const p=document.createElementNS(NS,'path');p.setAttribute('d',arc(ri,ro,a0,a1));p.setAttribute('fill',col);p.dataset.id=id;p.dataset.kind=kind;
     p.addEventListener('mouseenter',()=>{[...SVG.children].forEach(x=>x.classList.add('dim'));p.classList.remove('dim');onf();if(done===0){done=1;render();}});
     p.addEventListener('mouseleave',()=>{[...SVG.children].forEach(x=>x.classList.remove('dim'));reset();});
-    p.addEventListener('click',()=>{ if(kind==='leaf'){const l=leaves.find(x=>x.id===id);if(PICK.has(id))PICK.delete(id);else PICK.add(id);}else{const d=DATA.find(x=>x.id===id);const allIn=d.ch.every(c=>PICK.has(c.id));d.ch.forEach(c=>allIn?PICK.delete(c.id):PICK.add(c.id));} afterPick(); });
+    p.addEventListener('click',()=>{ if(kind==='leaf'){if(PICK.has(id))PICK.delete(id);else{PICK.add(id);track('demo-collect');}}else{const d=DATA.find(x=>x.id===id);const allIn=d.ch.every(c=>PICK.has(c.id));d.ch.forEach(c=>allIn?PICK.delete(c.id):PICK.add(c.id));if(!allIn)track('demo-collect');} afterPick(); });
     SVG.appendChild(p);
   }
   function markPick(){[...SVG.children].forEach(p=>{const id=p.dataset.id;let on=false;if(p.dataset.kind==='leaf')on=PICK.has(id);else{const d=DATA.find(x=>x.id===id);on=d&&d.ch.length>0&&d.ch.every(c=>PICK.has(c.id));}p.classList.toggle('pick',on);});SVG.classList.toggle('haspick',PICK.size>0);}
@@ -553,6 +545,7 @@ document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()
     freedEl.textContent=fmt(FREED);
   }
   reclaimEl.addEventListener('click',()=>{const tp=pickedTotal();if(tp<=0)return;
+    track('demo-reclaim',{gb:Math.round(tp)});
     reclaimEl.disabled=true;freedWrap.style.display='flex';
     // animate: the collected slices/cells shrink + fade away, the Freed counter ticks up
     if(VIEW==='sun'){
@@ -569,7 +562,7 @@ document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()
       leaves=leaves.filter(l=>!PICK.has(l.id));PICK.clear();FREED=to;lastFreed=tp;done=3;
       if(VIEW==='sun')build();else buildTree();render();
     },560);});
-  seg.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.dataset.v===VIEW)return;if(done===0)done=1;setView(b.dataset.v);render();});
+  seg.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.dataset.v===VIEW)return;if(done===0)done=1;setView(b.dataset.v);track('demo-mode',{mode:b.dataset.v==='sun'?'sunburst':'treemap'});render();});
   resetEl.addEventListener('click',()=>{init();FREED=0;done=0;if(VIEW==='sun')build();else buildTree();render();});
   init();build();done=0;render();
 })();

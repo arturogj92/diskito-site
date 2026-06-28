@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mac Startup Disk Full? How to Fix "Your Disk Is Almost Full" (2026)</title>
+<meta name="description" content="Got the 'Your startup disk is almost full' warning on your Mac? Here is why it happens, the immediate wins, what is safe to delete and what is not, how purgeable space and APFS snapshots work, and how to fix it for good.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0A0B0E">
+<link rel="canonical" href="https://diskito.com/blog/startup-disk-full-mac/">
+<link rel="alternate" hreflang="en" href="https://diskito.com/blog/startup-disk-full-mac/">
+<link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/disco-de-arranque-lleno-mac/">
+<link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/startup-disk-full-mac/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Diskito">
+<meta property="og:title" content="Mac Startup Disk Full? How to Fix &quot;Your Disk Is Almost Full&quot;">
+<meta property="og:description" content="Why the startup disk full warning happens on a Mac, the immediate wins, what is safe to delete, how purgeable space and APFS snapshots work, and how to fix it for good.">
+<meta property="og:url" content="https://diskito.com/blog/startup-disk-full-mac/">
+<meta property="og:image" content="https://diskito.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mac Startup Disk Full? How to Fix &quot;Your Disk Is Almost Full&quot;">
+<meta name="twitter:image" content="https://diskito.com/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Mac Startup Disk Full? How to Fix Your Disk Is Almost Full","description":"Why the startup disk full warning happens on a Mac, the immediate wins, what is safe to delete, how purgeable space and APFS snapshots work, and how to fix it for good.","image":"https://diskito.com/og-image.png","author":{"@type":"Organization","name":"Diskito"},"publisher":{"@type":"Organization","name":"Diskito"},"mainEntityOfPage":"https://diskito.com/blog/startup-disk-full-mac/","datePublished":"2026-06-28","dateModified":"2026-06-28"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Diskito","item":"https://diskito.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://diskito.com/blog/"},{"@type":"ListItem","position":3,"name":"Startup disk full on Mac","item":"https://diskito.com/blog/startup-disk-full-mac/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Why does my Mac say the startup disk is almost full?","acceptedAnswer":{"@type":"Answer","text":"macOS shows the warning when the boot volume runs low on free space. The usual causes are caches, old backups and developer build folders, plus local Time Machine snapshots and purgeable space that the storage screen hides inside System Data."}},
+{"@type":"Question","name":"What is purgeable space on a Mac?","acceptedAnswer":{"@type":"Answer","text":"Purgeable space is data macOS can delete automatically when it needs room, such as cached files and local snapshots. It still counts as used space in some tools, which is why a disk can look full even after you delete files. Freeing real space pushes macOS to release it."}},
+{"@type":"Question","name":"How do I free up space on my Mac startup disk?","acceptedAnswer":{"@type":"Answer","text":"To free up space on a Mac startup disk, empty the Trash, clear ~/Library/Caches, delete Xcode DerivedData and old node_modules, remove old iOS backups and large files in Downloads, then restart. A restart lets macOS purge local snapshots and reclaim purgeable space."}}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0B0E;--panel:#121319;--white:#F3F1EA;--gray:#A6A29A;--gray-2:#6E6B64;--amber:#FBBF24;--amber-deep:#D9920B;--green:#5BD08A;--line:rgba(243,241,234,.10);--disp:'Bricolage Grotesque',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--gut:clamp(18px,4vw,34px)}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;
+  background-image:radial-gradient(900px 520px at 88% -12%,rgba(251,191,36,.12),transparent 58%),linear-gradient(180deg,var(--bg),#08090C)}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;background-image:radial-gradient(rgba(243,241,234,.05) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(800px 560px at 84% 0,#000,transparent 76%)}
+a{color:var(--amber);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
+.nav{border-bottom:1px solid var(--line);position:sticky;top:0;backdrop-filter:blur(14px);background:rgba(10,11,14,.72);z-index:10}
+.nav .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);height:60px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:18px;color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;border-radius:11px;padding:10px 16px;color:#2A1C05;background:linear-gradient(180deg,#FCCB45,var(--amber-deep));box-shadow:0 8px 22px -8px rgba(251,191,36,.5)}
+.btn svg{width:15px;height:15px}
+article{padding:clamp(28px,5vw,52px) 0 40px}
+.crumb{font-family:var(--mono);font-size:12px;color:var(--gray-2);margin-bottom:18px}
+.crumb a{color:var(--gray)}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.05;letter-spacing:-1.3px;margin-bottom:14px}
+.meta{font-family:var(--mono);font-size:12.5px;color:var(--gray-2);margin-bottom:8px}
+.lede{font-size:18px;color:var(--gray);margin:18px 0 8px;line-height:1.6}
+article h2{font-family:var(--disp);font-weight:600;font-size:clamp(21px,3vw,27px);letter-spacing:-.6px;margin:38px 0 12px;padding-top:8px}
+article h3{font-size:17px;font-weight:700;margin:22px 0 8px}
+article p{color:#d7d3c8;margin:12px 0}
+article ul,article ol{color:#d7d3c8;margin:12px 0 12px 22px}
+article li{margin:7px 0}
+code{font-family:var(--mono);font-size:.86em;background:rgba(243,241,234,.06);border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:#ffd98a}
+.note{border-left:3px solid var(--amber);background:rgba(251,191,36,.05);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;font-size:14.5px;color:var(--gray)}
+.cta{border:1px solid rgba(251,191,36,.28);border-radius:16px;padding:24px;margin:30px 0;background:radial-gradient(200px 120px at 90% 0,rgba(251,191,36,.12),transparent 70%),linear-gradient(180deg,rgba(243,241,234,.03),transparent);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.cta .mk{flex:0 0 auto}
+.cta h3{font-family:var(--disp);font-weight:700;font-size:19px;margin:0 0 4px}
+.cta p{margin:0;color:var(--gray);font-size:14px}
+.cta .grow{flex:1;min-width:200px}
+.faq{margin-top:30px}
+.faq h2{margin-bottom:6px}
+.qa{border-bottom:1px solid var(--line);padding:16px 0}
+.qa b{display:block;font-family:var(--disp);font-weight:600;font-size:16px;margin-bottom:6px;color:var(--white)}
+.qa p{margin:0;font-size:14.5px;color:var(--gray)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0;color:var(--gray-2);font-size:13px}
+footer .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+  <script defer src="https://umami-codeagentswarm-production.up.railway.app/script.js" data-website-id="984cf209-a159-414b-914f-a6a0c660a2d7"></script>
+</head>
+<body>
+<nav class="nav"><div class="row">
+  <a class="brand" href="/"><img src="../../assets/diskito-logo-mark.png" width="22" height="22" alt="Diskito">Diskito</a>
+  <a class="btn" href="https://dl.diskito.com/diskito?src=blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download Free</a>
+</div></nav>
+
+<article class="wrap">
+  <div class="crumb"><a href="/">Diskito</a> / <a href="/blog/">Blog</a> / Startup disk full on Mac · <a href="../es/disco-de-arranque-lleno-mac/">ES</a></div>
+  <div class="meta">Guide · macOS 14+ · Updated June 2026</div>
+  <h1>Mac Startup Disk Full? How to Fix It</h1>
+  <p class="lede">The message "Your startup disk is almost full" usually shows up at the worst moment — mid-export, mid-update, mid-deadline. The good news is that a Mac is almost never as full as it claims. Here is why it happens and how to get breathing room back, fastest fixes first.</p>
+
+  <h2>What "startup disk" actually means</h2>
+  <p>Your startup disk is the volume macOS boots from, normally called <strong>Macintosh HD</strong>. macOS needs free room on it to work — for virtual memory, app updates and temporary files. When that free room drops too low, you get the warning, and the Mac starts to feel slow, because it has nowhere to put its scratch data.</p>
+  <p>Check the current state in <strong>Apple menu &rarr; System Settings &rarr; General &rarr; Storage</strong>. Note the figure, then watch it as you work through the steps below.</p>
+
+  <h2>Immediate wins (do these first)</h2>
+  <ol>
+    <li><strong>Empty the Trash.</strong> Deleted files still count until the Trash is emptied. Empty the Dock Trash and the per-app "Recently Deleted" in Photos and Mail too.</li>
+    <li><strong>Clear user caches.</strong> In Finder press <code>Cmd+Shift+G</code>, paste <code>~/Library/Caches</code>, and delete the contents of the biggest folders. Safe — apps rebuild them.</li>
+    <li><strong>Empty the Downloads folder.</strong> Sort by size and remove old <code>.dmg</code> and <code>.pkg</code> installers and duplicate exports.</li>
+    <li><strong>Delete developer build junk.</strong> <code>~/Library/Developer/Xcode/DerivedData</code> and old <code>node_modules</code> are often the biggest single wins — sometimes tens of gigabytes — and both regenerate on demand.</li>
+    <li><strong>Restart.</strong> A reboot lets macOS purge local snapshots and release purgeable space, which is often where the "missing" gigabytes are hiding.</li>
+  </ol>
+
+  <h2>Purgeable space and APFS snapshots: the part that confuses everyone</h2>
+  <p>This is the reason a Mac can stay "full" even after you delete a pile of files. macOS keeps two kinds of invisible data on the boot volume:</p>
+  <ul>
+    <li><strong>Purgeable space</strong> — cached files and offloadable content that macOS will automatically delete <em>when it needs the room</em>. Until then it shows as used. Some tools report total used space including purgeable, so the disk looks fuller than it really is.</li>
+    <li><strong>Local Time Machine snapshots</strong> — when Time Machine cannot reach its backup drive, it stores hourly snapshots locally on the startup disk. These can hold many gigabytes and are exactly what bloats "System Data".</li>
+  </ul>
+  <p>The reliable way to force macOS to release this is to <strong>create genuine free space</strong> (delete real files) and then <strong>restart</strong>. macOS thins old snapshots automatically once the volume is under pressure. You can also see snapshots from Terminal with <code>tmutil listlocalsnapshots /</code>.</p>
+  <div class="note">Do not go hunting for snapshots or purgeable space to delete by hand. Free up real files and reboot — macOS reclaims the rest itself. Avoid third-party tools that promise to "wipe purgeable space"; they rarely do what they claim.</div>
+
+  <h2>What is safe to delete, and what is not</h2>
+  <p><strong>Safe:</strong> Trash contents, <code>~/Library/Caches</code> contents, Xcode DerivedData, old <code>node_modules</code>, old iOS device backups in <code>~/Library/Application Support/MobileSync/Backup</code>, installers in Downloads, and large media you have already backed up.</p>
+  <p><strong>Not safe:</strong> anything in <code>/System</code> or the root <code>/Library</code>, the hidden <code>/private/var</code> folders, and any folder you do not recognise. Deleting from these can stop macOS from booting.</p>
+
+  <h2>Stop it from coming back</h2>
+  <p>Turn on <strong>Optimise Mac Storage</strong> for Photos and iCloud Drive so originals live in the cloud, and keep an eye on the build folders if you write code — they refill fast. If you want the complete walkthrough beyond this emergency fix, our guide on <a href="/blog/how-to-free-up-disk-space-on-mac/">how to free up disk space on Mac</a> covers every step in order.</p>
+  <p>The simplest long-term fix is to actually see your disk: <a href="/">Diskito</a> draws your whole startup disk as a sunburst and treemap, so the moment something balloons you can spot it and move it to the Trash in a click, reversible until you empty it. No guessing which folder grew.</p>
+
+  <div class="cta">
+    <svg class="mk" width="46" height="46" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="rgba(243,241,234,.22)" stroke-width="2.4"/><path d="M12 3.5A8.5 8.5 0 0 1 17 19.6" stroke="#FBBF24" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <div class="grow"><h3>See exactly what filled your disk</h3><p>Diskito maps your startup disk, finds the safe-to-delete junk behind "System Data" automatically, and reclaims it in one click. Free to visualise, with free cleanups to try.</p></div>
+    <a class="btn" href="https://dl.diskito.com/diskito?src=blog">Download Diskito</a>
+  </div>
+
+  <div class="faq">
+    <h2>FAQ</h2>
+    <div class="qa"><b>Why does my Mac say the startup disk is almost full?</b><p>The boot volume is low on free space. The usual causes are caches, old backups and developer build folders, plus local Time Machine snapshots and purgeable space hidden inside "System Data".</p></div>
+    <div class="qa"><b>What is purgeable space on a Mac?</b><p>Data macOS can delete automatically when it needs room, like cached files and local snapshots. It still shows as used in some tools, which is why a disk can look full after you delete files. Freeing real space and restarting pushes macOS to release it.</p></div>
+    <div class="qa"><b>How do I free up space on my Mac startup disk?</b><p>To free up space on a Mac startup disk, empty the Trash, clear <code>~/Library/Caches</code>, delete Xcode DerivedData and old node_modules, remove old iOS backups and big files in Downloads, then restart so macOS can purge local snapshots.</p></div>
+  </div>
+</article>
+
+<footer><div class="row">
+  <div class="brand" style="font-size:15px"><img src="../../assets/diskito-logo-mark.png" width="16" height="16" alt="Diskito">Diskito</div>
+  <div>© 2026 Diskito · <a href="/">Home</a> · <a href="/blog/">Blog</a></div>
+</div></footer>
+</body>
+</html>

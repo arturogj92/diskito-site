@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cómo borrar la caché en Mac (2026): paso a paso y seguro</title>
+<meta name="description" content="Guía clara y segura para borrar la caché en un Mac: qué son las cachés de usuario, sistema, apps y navegador, cuáles se pueden borrar sin riesgo, pasos para Finder, Chrome, Safari y DerivedData de Xcode, y los riesgos a evitar.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0A0B0E">
+<link rel="canonical" href="https://diskito.com/blog/es/como-borrar-la-cache-en-mac/">
+<link rel="alternate" hreflang="en" href="https://diskito.com/blog/how-to-clear-cache-on-mac/">
+<link rel="alternate" hreflang="es" href="https://diskito.com/blog/es/como-borrar-la-cache-en-mac/">
+<link rel="alternate" hreflang="x-default" href="https://diskito.com/blog/how-to-clear-cache-on-mac/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Diskito">
+<meta property="og:title" content="Cómo borrar la caché en Mac (2026): paso a paso y seguro">
+<meta property="og:description" content="Qué son las cachés de usuario, sistema, apps y navegador, cuáles se pueden borrar sin riesgo y cómo borrarlas en un Mac sin romper nada.">
+<meta property="og:url" content="https://diskito.com/blog/es/como-borrar-la-cache-en-mac/">
+<meta property="og:image" content="https://diskito.com/og-image.png">
+<meta property="og:locale" content="es">
+<meta property="og:locale:alternate" content="en">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cómo borrar la caché en Mac (2026): paso a paso y seguro">
+<meta name="twitter:image" content="https://diskito.com/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cómo borrar la caché en Mac (2026): paso a paso y seguro","description":"Qué son las cachés de usuario, sistema, apps y navegador, cuáles se pueden borrar sin riesgo y cómo borrarlas en un Mac sin romper nada.","image":"https://diskito.com/og-image.png","inLanguage":"es","author":{"@type":"Organization","name":"Diskito"},"publisher":{"@type":"Organization","name":"Diskito"},"mainEntityOfPage":"https://diskito.com/blog/es/como-borrar-la-cache-en-mac/","datePublished":"2026-06-28","dateModified":"2026-06-28"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Diskito","item":"https://diskito.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://diskito.com/blog/es/"},{"@type":"ListItem","position":3,"name":"Cómo borrar la caché en Mac","item":"https://diskito.com/blog/es/como-borrar-la-cache-en-mac/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"es","mainEntity":[
+{"@type":"Question","name":"¿Es seguro borrar la caché en un Mac?","acceptedAnswer":{"@type":"Answer","text":"Borrar las cachés de usuario y del navegador es seguro: las apps y las webs las reconstruyen solas. Cierra antes la app correspondiente. La única precaución es dejar en paz las cachés del sistema en las carpetas /Library de la raíz y /System, y nunca borrar una carpeta que no reconozcas."}},
+{"@type":"Question","name":"¿Dónde está la carpeta de caché en un Mac?","acceptedAnswer":{"@type":"Answer","text":"Las cachés de usuario están en ~/Library/Caches dentro de tu carpeta de usuario. Abre el Finder, pulsa Cmd+Mayús+G y pega ~/Library/Caches. Las cachés del sistema están en /Library/Caches y /System, que conviene dejar en paz."}},
+{"@type":"Question","name":"¿Borrar la caché elimina mis archivos o cierra mi sesión?","acceptedAnswer":{"@type":"Answer","text":"No. Las cachés son datos temporales que se reconstruyen, no tus documentos. Borrar la caché del navegador no elimina marcadores ni contraseñas, aunque puede cerrar la sesión en algunas webs y hacer que la siguiente carga sea un poco más lenta mientras se reconstruyen."}},
+{"@type":"Question","name":"¿Cómo borro la caché del sistema en un Mac?","acceptedAnswer":{"@type":"Answer","text":"En general no deberías borrar a mano las cachés del sistema en /Library/Caches y /System, porque puede romper apps. macOS borra lo que puede sin riesgo al reiniciar, así que la forma más segura de refrescar la caché del sistema es reiniciar. Centra tu limpieza en las cachés de usuario, de app y de navegador."}}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0B0E;--panel:#121319;--white:#F3F1EA;--gray:#A6A29A;--gray-2:#6E6B64;--amber:#FBBF24;--amber-deep:#D9920B;--green:#5BD08A;--line:rgba(243,241,234,.10);--disp:'Bricolage Grotesque',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--gut:clamp(18px,4vw,34px)}
+*{margin:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;
+  background-image:radial-gradient(900px 520px at 88% -12%,rgba(251,191,36,.12),transparent 58%),linear-gradient(180deg,var(--bg),#08090C)}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;background-image:radial-gradient(rgba(243,241,234,.05) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(800px 560px at 84% 0,#000,transparent 76%)}
+a{color:var(--amber);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
+.nav{border-bottom:1px solid var(--line);position:sticky;top:0;backdrop-filter:blur(14px);background:rgba(10,11,14,.72);z-index:10}
+.nav .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);height:60px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:18px;color:var(--white)}
+.brand img{display:block;filter:drop-shadow(0 0 8px rgba(251,150,80,.3))}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;border-radius:11px;padding:10px 16px;color:#2A1C05;background:linear-gradient(180deg,#FCCB45,var(--amber-deep));box-shadow:0 8px 22px -8px rgba(251,191,36,.5)}
+.btn svg{width:15px;height:15px}
+article{padding:clamp(28px,5vw,52px) 0 40px}
+.crumb{font-family:var(--mono);font-size:12px;color:var(--gray-2);margin-bottom:18px}
+.crumb a{color:var(--gray)}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.05;letter-spacing:-1.3px;margin-bottom:14px}
+.meta{font-family:var(--mono);font-size:12.5px;color:var(--gray-2);margin-bottom:8px}
+.lede{font-size:18px;color:var(--gray);margin:18px 0 8px;line-height:1.6}
+article h2{font-family:var(--disp);font-weight:600;font-size:clamp(21px,3vw,27px);letter-spacing:-.6px;margin:38px 0 12px;padding-top:8px}
+article h3{font-size:17px;font-weight:700;margin:22px 0 8px}
+article p{color:#d7d3c8;margin:12px 0}
+article ul,article ol{color:#d7d3c8;margin:12px 0 12px 22px}
+article li{margin:7px 0}
+code{font-family:var(--mono);font-size:.86em;background:rgba(243,241,234,.06);border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:#ffd98a}
+.note{border-left:3px solid var(--amber);background:rgba(251,191,36,.05);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;font-size:14.5px;color:var(--gray)}
+.cta{border:1px solid rgba(251,191,36,.28);border-radius:16px;padding:24px;margin:30px 0;background:radial-gradient(200px 120px at 90% 0,rgba(251,191,36,.12),transparent 70%),linear-gradient(180deg,rgba(243,241,234,.03),transparent);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.cta img{flex:0 0 auto;filter:drop-shadow(0 0 10px rgba(251,150,80,.3))}
+.cta h3{font-family:var(--disp);font-weight:700;font-size:19px;margin:0 0 4px}
+.cta p{margin:0;color:var(--gray);font-size:14px}
+.cta .grow{flex:1;min-width:200px}
+.faq{margin-top:30px}.faq h2{margin-bottom:6px}
+.qa{border-bottom:1px solid var(--line);padding:16px 0}
+.qa b{display:block;font-family:var(--disp);font-weight:600;font-size:16px;margin-bottom:6px;color:var(--white)}
+.qa p{margin:0;font-size:14.5px;color:var(--gray)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0;color:var(--gray-2);font-size:13px}
+footer .row{max-width:1100px;margin:0 auto;padding:0 var(--gut);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+  <script defer src="https://umami-codeagentswarm-production.up.railway.app/script.js" data-website-id="984cf209-a159-414b-914f-a6a0c660a2d7"></script>
+</head>
+<body>
+<nav class="nav"><div class="row">
+  <a class="brand" href="/"><img src="../../../assets/diskito-logo-mark.png" width="22" height="22" alt="Diskito">Diskito</a>
+  <a class="btn" href="https://dl.diskito.com/diskito?src=blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Descargar gratis</a>
+</div></nav>
+
+<article class="wrap">
+  <div class="crumb"><a href="/">Diskito</a> / <a href="/blog/es/">Blog</a> / Cómo borrar la caché en Mac · <a href="../../how-to-clear-cache-on-mac/">EN</a></div>
+  <div class="meta">Guía · macOS 14+ · Actualizado junio 2026</div>
+  <h1>Cómo borrar la caché en Mac, de forma segura</h1>
+  <p class="lede">Las cachés hacen tu Mac más rápido — hasta que crecen en silencio a varios gigas y empiezan a jugar en tu contra. Borrarlas es una de las formas más seguras de recuperar espacio y arreglar fallos raros, siempre que borres las correctas. Esto es qué es cada caché y cómo eliminarla exactamente.</p>
+
+  <h2>Qué es realmente una caché</h2>
+  <p>Una caché es un alijo de datos temporales que una app guarda para no tener que recalcular o volver a descargar algo. Un navegador cachea imágenes para que una página cargue al instante la segunda vez; un editor de código cachea índices; macOS cachea fuentes y miniaturas. Nada de eso es irreemplazable: por diseño, cualquier cosa de una caché se puede borrar y reconstruir cuando hace falta. Justo por eso borrar cachés es seguro, y por eso es lo primero que probar cuando una app se porta mal o el disco se llena de golpe.</p>
+
+  <h2>Los cuatro tipos de caché en un Mac</h2>
+  <ul>
+    <li><strong>Cachés de usuario</strong> — <code>~/Library/Caches</code>, una carpeta por app. Esta es la grande y segura de borrar.</li>
+    <li><strong>Cachés gestionadas por la app</strong> — datos que una app guarda en su propio contenedor, como las canciones sin conexión de Spotify o la caché de compilación de Xcode. Mejor borrarlas desde dentro de la app.</li>
+    <li><strong>Cachés del navegador</strong> — páginas e imágenes web cacheadas, se borran desde los ajustes del navegador.</li>
+    <li><strong>Cachés del sistema</strong> — <code>/Library/Caches</code> y <code>/System</code>. Déjalas en paz. Las gestiona macOS, y borrarlas a mano puede causar más problemas de los que resuelve.</li>
+  </ul>
+
+  <h2>Borra la caché de usuario en el Finder</h2>
+  <p>Aquí es donde vive el espacio más fácil de recuperar.</p>
+  <ol>
+    <li>Cierra las apps que vas a limpiar (una app abierta puede reescribir su caché al momento).</li>
+    <li>En el Finder, pulsa <code>Cmd+Mayús+G</code>, pega <code>~/Library/Caches</code> y pulsa Intro.</li>
+    <li>Ordena por tamaño (Visualización &rarr; como Lista y haz clic en la columna Tamaño). Las carpetas más grandes suelen ser navegadores, apps de chat y herramientas creativas.</li>
+    <li>Abre una carpeta y mueve su <em>contenido</em> a la Papelera, no la carpeta con nombre en sí — así mantienes la estructura que las apps esperan.</li>
+    <li>Vacía la Papelera para recuperar el espacio de verdad.</li>
+  </ol>
+  <div class="note">Borra el contenido de dentro de cada carpeta de caché por app, no la carpeta raíz <code>~/Library/Caches</code> en sí, y nunca toques <code>/System</code> ni la <code>/Library</code> de la raíz.</div>
+
+  <h2>Borra las cachés del navegador</h2>
+  <p>Los navegadores suelen ser la mayor caché de toda la máquina.</p>
+  <h3>Safari</h3>
+  <p>Activa el menú Desarrollo en <strong>Safari &rarr; Ajustes &rarr; Avanzado &rarr; Mostrar funciones para desarrolladores web</strong> y elige <strong>Desarrollo &rarr; Vaciar memorias caché</strong>. Para borrar también cookies e historial, usa <strong>Safari &rarr; Ajustes &rarr; Privacidad &rarr; Gestionar datos de sitios web</strong>.</p>
+  <h3>Chrome y Edge</h3>
+  <p>Abre <strong>Configuración &rarr; Privacidad y seguridad &rarr; Borrar datos de navegación</strong>, elige un intervalo de <em>Todos los periodos</em>, marca solo <strong>Archivos e imágenes en caché</strong> (deja las contraseñas sin marcar) y confirma. Esto solo ya libera a menudo varios gigas.</p>
+  <h3>Firefox</h3>
+  <p><strong>Ajustes &rarr; Privacidad y seguridad &rarr; Cookies y datos del sitio &rarr; Limpiar datos</strong> y marca <strong>Contenido web en caché</strong>.</p>
+
+  <h2>Borra las cachés de desarrollo (las más gordas de todas)</h2>
+  <p>Si programas, las cachés de compilación dejan a todo lo demás pequeño. La más segura y con más impacto es el DerivedData de Xcode:</p>
+  <p><code>rm -rf ~/Library/Developer/Xcode/DerivedData/*</code></p>
+  <p>Se regenera la próxima vez que compiles. Otras cachés grandes que se reconstruyen: <code>~/Library/Caches/Homebrew</code>, la caché de npm (<code>npm cache clean --force</code>) y CocoaPods (<code>~/Library/Caches/CocoaPods</code>). Cada una es segura de borrar porque la herramienta la vuelve a llenar sola.</p>
+
+  <h2>¿Y la caché del sistema en Mac?</h2>
+  <p>Mucha gente busca cómo borrar la caché del sistema en un Mac, pero este es el sitio donde hay que tener cuidado. Las cachés de sistema de verdad, en <code>/Library/Caches</code> y <code>/System</code>, las gestiona macOS, y borrarlas a mano puede romper apps o forzar reconstrucciones largas en el siguiente arranque. macOS ya borra lo que puede sin riesgo al reiniciar, así que la mejor forma de refrescar la caché del sistema en un Mac es simplemente reiniciar. Deja esas carpetas en paz y céntrate en las cachés de usuario, de app y de navegador de arriba, que es donde está todo el espacio seguro y recuperable.</p>
+
+  <h2>La forma más rápida y segura de borrar la caché en Mac</h2>
+  <p>Hacer todo esto a mano significa conocer cada ruta y tener cuidado de no borrar la carpeta equivocada. <a href="/">Diskito</a> escanea tu disco, agrupa todas las cachés —de usuario, de app, de navegador y de desarrollo— en un solo sitio claramente etiquetado, te enseña cuánto ocupa cada una y mueve lo que selecciones a la Papelera, así que es totalmente reversible hasta que la vacíes. Sin Terminal y sin riesgo de tocar una carpeta del sistema. Si quieres la limpieza completa más allá de las cachés, mira nuestra guía sobre <a href="/blog/es/como-liberar-espacio-en-disco-en-mac/">cómo liberar espacio en disco en Mac</a>.</p>
+
+  <div class="cta">
+    <img src="../../../assets/diskito-logo-mark.png" width="46" height="46" alt="Diskito">
+    <div class="grow"><h3>Borra cada caché en un solo sitio</h3><p>Diskito encuentra tus cachés y la basura de compilación automáticamente, te enseña cuánto ocupa cada una y solo manda a la Papelera lo que tú elijas — reversible hasta que la vacíes. Gratis para visualizar, con limpiezas gratis para probar.</p></div>
+    <a class="btn" href="https://dl.diskito.com/diskito?src=blog">Descargar Diskito</a>
+  </div>
+
+  <div class="faq">
+    <h2>Preguntas frecuentes</h2>
+    <div class="qa"><b>¿Es seguro borrar la caché en un Mac?</b><p>Borrar las cachés de usuario y del navegador es seguro: se reconstruyen solas. Cierra antes la app correspondiente, deja en paz las cachés del sistema en la <code>/Library</code> de la raíz y en <code>/System</code>, y nunca borres una carpeta que no reconozcas.</p></div>
+    <div class="qa"><b>¿Dónde está la carpeta de caché en un Mac?</b><p>Las cachés de usuario están en <code>~/Library/Caches</code>. En el Finder pulsa <code>Cmd+Mayús+G</code> y pega esa ruta. Las del sistema están en <code>/Library/Caches</code> y <code>/System</code>, que conviene dejar en paz.</p></div>
+    <div class="qa"><b>¿Borrar la caché elimina mis archivos o cierra mi sesión?</b><p>No. Las cachés son datos temporales que se reconstruyen, no tus documentos. Borrar la caché del navegador no elimina marcadores ni contraseñas, aunque puede cerrar la sesión en algunas webs y hacer la siguiente carga un poco más lenta.</p></div>
+    <div class="qa"><b>¿Cómo borro la caché del sistema en un Mac?</b><p>En general no deberías borrar a mano las cachés del sistema en <code>/Library/Caches</code> y <code>/System</code> — puede romper apps. macOS borra lo que puede sin riesgo al reiniciar, así que la forma más segura de refrescar la caché del sistema es reiniciar. Centra la limpieza en las cachés de usuario, de app y de navegador.</p></div>
+  </div>
+</article>
+
+<footer><div class="row">
+  <div class="brand" style="font-size:15px"><img src="../../../assets/diskito-logo-mark.png" width="16" height="16" alt="Diskito">Diskito</div>
+  <div>© 2026 Diskito · <a href="/">Inicio</a> · <a href="/blog/es/">Blog</a></div>
+</div></footer>
+</body>
+</html>
