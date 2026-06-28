@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.2</title>
+      <description><![CDATA[The Largest view now shows the biggest files across your whole disk, not just the current folder — with a top-10 list and a Load more button, and a clear scope header.]]></description>
+      <pubDate>Mon, 29 Jun 2026 01:06:43 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.2/Diskito-v1.0.2-macOS.zip" sparkle:version="5" sparkle:shortVersionString="1.0.2" length="2331737" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.1</title>
       <description><![CDATA[Fixes the Pro unlock: it is now a real Gumroad license-key activation (enter your key to unlock) instead of a placeholder, plus honest pricing copy and brand fixes.]]></description>
       <pubDate>Mon, 29 Jun 2026 00:54:45 +0200</pubDate>
