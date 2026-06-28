@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.4</title>
+      <description><![CDATA[You can now add a whole folder to the cleanup queue directly from the map: hover any folder in the sunburst or treemap and click Collect folder (the list view already has a + per row). Deleting a folder moves the entire folder to the Trash in one operation instead of its thousands of individual files.]]></description>
+      <pubDate>Mon, 29 Jun 2026 01:40:12 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.4/Diskito-v1.0.4-macOS.zip" sparkle:version="7" sparkle:shortVersionString="1.0.4" length="2332475" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.3</title>
       <description><![CDATA[Fixes a near-freeze when collecting a huge number of files at once (e.g. a node_modules folder with tens of thousands of files) and makes Clear all instant — the collector now renders a capped preview with the full count instead of one row per file.]]></description>
       <pubDate>Mon, 29 Jun 2026 01:17:57 +0200</pubDate>
