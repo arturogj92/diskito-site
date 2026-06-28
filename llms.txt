@@ -1,12 +1,12 @@
 # Diskito
 
-> Diskito is a macOS app (macOS 14 and later) that shows what is taking up space on your Mac as an interactive sunburst and treemap, then reclaims the space by safely deleting caches, junk and large files in one click. It is notarized, distributed outside the App Store, and auto-updates via Sparkle. Free to visualize and 5 free cleanups, then a one-time 3 EUR unlocks unlimited cleanup.
+> Diskito is a macOS app (macOS 14 and later) that shows what is taking up space on your Mac as an interactive sunburst and treemap, then reclaims the space by safely deleting caches, junk and large files in one click. It is notarized, distributed outside the App Store, and auto-updates via Sparkle. Free to visualize, with free cleanups to try; unlimited cleanup unlocks inside the app, no subscription.
 
-Diskito maps every gigabyte on your drive so the space hogs are impossible to miss. You hover a slice to inspect it, click the junk to collect it, and reclaim the space in one authorized sweep. It finds the safe-to-delete things on a Mac: user and browser caches, Xcode DerivedData, node_modules, Trash and old downloads. The website is English by default with a Spanish toggle, and the blog publishes guides in both English (/blog/) and Spanish (/blog/es/). Pricing is a one-time 3 EUR purchase via Gumroad after 5 free cleanups; there is no subscription. Download is a notarized .zip from GitHub releases.
+Diskito maps every gigabyte on your drive so the space hogs are impossible to miss. You hover a slice to inspect it, click the junk to collect it, and move the junk to the Trash in one click, reversible until you empty it. It finds the safe-to-delete things on a Mac: user and browser caches, Xcode DerivedData, node_modules, Trash and old downloads. The website is English by default with a Spanish toggle, and the blog publishes guides in both English (/blog/) and Spanish (/blog/es/). Unlimited cleanup unlocks inside the app after the free cleanups, as a one-time purchase via Gumroad; there is no subscription. Download is a notarized .zip from GitHub releases.
 
 ## Product
 
-- [Diskito home](https://diskito.com/): What Diskito is, the sunburst and treemap views, smart cleanup, the collector, system requirements (macOS 14+), the 5 free cleanups, the one-time 3 EUR unlock, and the FAQ.
+- [Diskito home](https://diskito.com/): What Diskito is, the sunburst and treemap views, smart cleanup, the collector, system requirements (macOS 14+), the free cleanups, the one-time unlock inside the app, and the FAQ.
 - [Download Diskito (.zip)](https://github.com/arturogj92/diskito-site/releases/latest/download/Diskito.zip): Direct download of the latest notarized Diskito.zip build for macOS 14 and later.
 
 ## Guides (English)
