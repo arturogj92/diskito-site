@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.7</title>
+      <description><![CDATA[Easier folder cleanup: right-click any folder in the sunburst, treemap or list to collect it whole or open it. Treemap and list cells now show a quick + button. Replaced the floating collect button that was hard to click.]]></description>
+      <pubDate>Mon, 29 Jun 2026 03:07:41 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.7/Diskito-v1.0.7-macOS.zip" sparkle:version="10" sparkle:shortVersionString="1.0.7" length="2342744" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.6</title>
       <description><![CDATA[Opening is now instant after the first scan: Diskito shows your last scan immediately and refreshes it in the background. The first scan is parallelized (faster), and the loading screen now shows live progress — files and GB found as it works.]]></description>
       <pubDate>Mon, 29 Jun 2026 02:27:29 +0200</pubDate>
