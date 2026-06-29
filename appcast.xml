@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.17</title>
+      <description><![CDATA[Diskito now asks for the access it needs: on launch it triggers macOS's native Downloads/Desktop/Documents permission prompts, and if it still cannot delete it shows a clear Full Disk Access guide with a one-click shortcut to the setting and a recheck button — no more digging through System Settings.]]></description>
+      <pubDate>Mon, 29 Jun 2026 22:31:17 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.17/Diskito-v1.0.17-macOS.zip" sparkle:version="20" sparkle:shortVersionString="1.0.17" length="2347838" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.16</title>
       <description><![CDATA[Diagnostics for delete failures (writes the exact reason to a log so permission issues can be pinpointed).]]></description>
       <pubDate>Mon, 29 Jun 2026 22:22:11 +0200</pubDate>
