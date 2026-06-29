@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.16</title>
+      <description><![CDATA[Diagnostics for delete failures (writes the exact reason to a log so permission issues can be pinpointed).]]></description>
+      <pubDate>Mon, 29 Jun 2026 22:22:11 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.16/Diskito-v1.0.16-macOS.zip" sparkle:version="19" sparkle:shortVersionString="1.0.16" length="2344229" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.15</title>
       <description><![CDATA[Restored instant open: deleting no longer forces a full disk re-scan on the next launch, so the app opens immediately again (the background re-scan keeps everything up to date).]]></description>
       <pubDate>Mon, 29 Jun 2026 21:41:06 +0200</pubDate>
