@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.5</title>
+      <description><![CDATA[The app can no longer get stuck on the Scanning your disk screen: if loading the scan ever fails or takes too long, it now shows a Retry instead of an endless spinner, and any internal error is logged so it can be diagnosed.]]></description>
+      <pubDate>Mon, 29 Jun 2026 02:00:44 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.5/Diskito-v1.0.5-macOS.zip" sparkle:version="8" sparkle:shortVersionString="1.0.5" length="2333362" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.4</title>
       <description><![CDATA[You can now add a whole folder to the cleanup queue directly from the map: hover any folder in the sunburst or treemap and click Collect folder (the list view already has a + per row). Deleting a folder moves the entire folder to the Trash in one operation instead of its thousands of individual files.]]></description>
       <pubDate>Mon, 29 Jun 2026 01:40:12 +0200</pubDate>
