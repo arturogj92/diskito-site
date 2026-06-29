@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.15</title>
+      <description><![CDATA[Restored instant open: deleting no longer forces a full disk re-scan on the next launch, so the app opens immediately again (the background re-scan keeps everything up to date).]]></description>
+      <pubDate>Mon, 29 Jun 2026 21:41:06 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.15/Diskito-v1.0.15-macOS.zip" sparkle:version="18" sparkle:shortVersionString="1.0.15" length="2341033" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.14</title>
       <description><![CDATA[List multi-select now works for real: hold and drag across rows to select a run, or Shift-click to select a range. Small sizes now show as MB/KB instead of '0.0 GB', and the session panel shows how many items you moved to the Trash.]]></description>
       <pubDate>Mon, 29 Jun 2026 21:35:39 +0200</pubDate>
