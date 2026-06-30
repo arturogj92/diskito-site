@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.22</title>
+      <description><![CDATA[Fixed: after deleting, closing and reopening the app no longer brings the deleted item back. The instant-open cache is now kept in sync on every delete, so it still opens instantly AND reflects what you removed.]]></description>
+      <pubDate>Tue, 30 Jun 2026 23:19:07 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.22/Diskito-v1.0.22-macOS.zip" sparkle:version="25" sparkle:shortVersionString="1.0.22" length="2349141" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.21</title>
       <description><![CDATA[Moved the Empty Trash button into the sidebar, right above the Reclaimed this session card.]]></description>
       <pubDate>Tue, 30 Jun 2026 23:10:57 +0200</pubDate>
