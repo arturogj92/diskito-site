@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.21</title>
+      <description><![CDATA[Moved the Empty Trash button into the sidebar, right above the Reclaimed this session card.]]></description>
+      <pubDate>Tue, 30 Jun 2026 23:10:57 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.21/Diskito-v1.0.21-macOS.zip" sparkle:version="24" sparkle:shortVersionString="1.0.21" length="2348057" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.20</title>
       <description><![CDATA[The list view now clearly shows which folder you are in (You are in X, up to Y), so similar or duplicate folders are easy to tell apart.]]></description>
       <pubDate>Tue, 30 Jun 2026 23:04:58 +0200</pubDate>
