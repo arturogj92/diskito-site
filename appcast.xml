@@ -6,6 +6,13 @@
     <description>Most recent Diskito updates</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.20</title>
+      <description><![CDATA[The list view now clearly shows which folder you are in (You are in X, up to Y), so similar or duplicate folders are easy to tell apart.]]></description>
+      <pubDate>Tue, 30 Jun 2026 23:04:58 +0200</pubDate>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/arturogj92/diskito-site/releases/download/v1.0.20/Diskito-v1.0.20-macOS.zip" sparkle:version="23" sparkle:shortVersionString="1.0.20" length="2348041" type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.19</title>
       <description><![CDATA[List view now has an Up-a-folder button at the top to go back a level. The corner hint now spells out Shift+click to collect. (Delete verified end to end with native and WebKit tests.)]]></description>
       <pubDate>Tue, 30 Jun 2026 22:55:00 +0200</pubDate>
